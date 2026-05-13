@@ -1,731 +1,1089 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Extremo Oeste | Turismo Cultural en Lima</title>
-
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
-
-    body{
-      background:#0b0b0b;
-      color:#f5f1e8;
-      font-family:'Inter', sans-serif;
-      overflow-x:hidden;
-    }
-
-    a{
-      text-decoration:none;
-      color:white;
-    }
-
-    img{
-      width:100%;
-      display:block;
-    }
-
-    /* NAVBAR */
-
-    nav{
-      position:fixed;
-      top:0;
-      width:100%;
-      z-index:1000;
-      background:rgba(0,0,0,.45);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .nav-container{
-      max-width:1400px;
-      margin:auto;
-      padding:20px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .logo{
-      font-family:'Oswald', sans-serif;
-      font-size:2rem;
-      line-height:1;
-      text-transform:uppercase;
-      font-weight:700;
-      letter-spacing:2px;
-    }
-
-    .menu{
-      display:flex;
-      gap:40px;
-    }
-
-    .menu a{
-      text-transform:uppercase;
-      font-size:.9rem;
-      letter-spacing:2px;
-      transition:.3s;
-    }
-
-    .menu a:hover{
-      color:#d67642;
-    }
-
-    /* HERO */
-
-    .hero{
-      height:100vh;
-      background:
-      linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.6)),
-      url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
-
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      padding:0 7%;
-    }
-
-    .hero-content{
-      max-width:750px;
-    }
-
-    .hero-sub{
-      color:#d67642;
-      letter-spacing:5px;
-      text-transform:uppercase;
-      margin-bottom:20px;
-      font-size:.9rem;
-    }
-
-    .hero h1{
-      font-family:'Oswald', sans-serif;
-      font-size:7rem;
-      line-height:.95;
-      text-transform:uppercase;
-      margin-bottom:30px;
-    }
-
-    .hero p{
-      font-size:1.2rem;
-      line-height:1.8;
-      color:rgba(255,255,255,.8);
-      margin-bottom:40px;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:18px 40px;
-      border:1px solid #d67642;
-      color:white;
-      text-transform:uppercase;
-      letter-spacing:3px;
-      transition:.3s;
-    }
-
-    .btn:hover{
-      background:#d67642;
-    }
-
-    /* FEATURES */
-
-    .features{
-      background:#050505;
-      border-top:1px solid rgba(255,255,255,.08);
-      border-bottom:1px solid rgba(255,255,255,.08);
-
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-    }
-
-    .feature{
-      padding:50px 40px;
-      border-right:1px solid rgba(255,255,255,.08);
-    }
-
-    .feature:last-child{
-      border-right:none;
-    }
-
-    .feature h3{
-      margin-bottom:15px;
-      color:#d67642;
-      font-family:'Oswald', sans-serif;
-      text-transform:uppercase;
-      font-size:1.6rem;
-    }
-
-    .feature p{
-      color:rgba(255,255,255,.7);
-      line-height:1.7;
-    }
-
-    /* SECTION */
-
-    section{
-      padding:120px 7%;
-    }
-
-    .section-title{
-      margin-bottom:70px;
-    }
-
-    .section-sub{
-      color:#d67642;
-      text-transform:uppercase;
-      letter-spacing:4px;
-      margin-bottom:15px;
-    }
-
-    .section-title h2{
-      font-family:'Oswald', sans-serif;
-      font-size:4rem;
-      text-transform:uppercase;
-    }
-
-    /* TOURS */
-
-    .tours{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .tour-card{
-      background:#121212;
-      border:1px solid rgba(255,255,255,.08);
-      overflow:hidden;
-      transition:.4s;
-    }
-
-    .tour-card:hover{
-      transform:translateY(-8px);
-      border-color:#d67642;
-    }
-
-    .tour-img{
-      height:380px;
-      overflow:hidden;
-    }
-
-    .tour-img img{
-      height:100%;
-      object-fit:cover;
-      transition:.5s;
-    }
-
-    .tour-card:hover img{
-      transform:scale(1.06);
-    }
-
-    .tour-content{
-      padding:30px;
-    }
-
-    .tour-content h3{
-      font-family:'Oswald', sans-serif;
-      font-size:2rem;
-      text-transform:uppercase;
-      margin-bottom:15px;
-    }
-
-    .tour-content p{
-      color:rgba(255,255,255,.7);
-      line-height:1.7;
-      margin-bottom:25px;
-    }
-
-    .price{
-      color:#d9a066;
-      font-weight:600;
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
-
-    /* STORIES */
-
-    .stories{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:30px;
-    }
-
-    .story{
-      background:#121212;
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .story img{
-      height:260px;
-      object-fit:cover;
-    }
-
-    .story-content{
-      padding:30px;
-    }
-
-    .story-content h3{
-      font-family:'Oswald', sans-serif;
-      font-size:2rem;
-      margin-bottom:15px;
-      text-transform:uppercase;
-    }
-
-    .story-content p{
-      color:rgba(255,255,255,.7);
-      line-height:1.8;
-    }
-
-    /* CONTACT */
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-    }
-
-    .contact-info h3{
-      font-family:'Oswald', sans-serif;
-      font-size:4rem;
-      text-transform:uppercase;
-      margin-bottom:30px;
-    }
-
-    .contact-info p{
-      color:rgba(255,255,255,.75);
-      line-height:1.8;
-      margin-bottom:25px;
-    }
-
-    .contact-form{
-      background:#121212;
-      padding:40px;
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    input,
-    textarea{
-      width:100%;
-      padding:18px;
-      margin-bottom:20px;
-      background:#1b1b1b;
-      border:1px solid rgba(255,255,255,.08);
-      color:white;
-      font-size:1rem;
-    }
-
-    textarea{
-      min-height:180px;
-      resize:none;
-    }
-
-    button{
-      width:100%;
-      padding:18px;
-      background:#d67642;
-      border:none;
-      color:white;
-      font-size:1rem;
-      text-transform:uppercase;
-      letter-spacing:3px;
-      cursor:pointer;
-      transition:.3s;
-    }
-
-    button:hover{
-      background:#eb8650;
-    }
-
-    /* FOOTER */
-
-    footer{
-      padding:40px 7%;
-      border-top:1px solid rgba(255,255,255,.08);
-      text-align:center;
-      color:rgba(255,255,255,.4);
-    }
-
-    /* WHATSAPP */
-
-    .whatsapp{
-      position:fixed;
-      bottom:25px;
-      right:25px;
-      background:#25D366;
-      color:black;
-      padding:18px 28px;
-      border-radius:100px;
-      font-weight:700;
-      z-index:999;
-      box-shadow:0 10px 25px rgba(0,0,0,.3);
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width:900px){
-
-      .hero h1{
-        font-size:4.5rem;
-      }
-
-      .features{
-        grid-template-columns:1fr;
-      }
-
-      .feature{
-        border-right:none;
-        border-bottom:1px solid rgba(255,255,255,.08);
-      }
-
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .menu{
-        display:none;
-      }
-
-    }
-
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Extremo Oeste | Turismo Cultural en Lima</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:#070707;
+color:#f5f1e8;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:white;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+max-width:1450px;
+margin:auto;
+padding:22px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-family:'Oswald',sans-serif;
+font-size:2.2rem;
+font-weight:700;
+line-height:1;
+text-transform:uppercase;
+letter-spacing:2px;
+}
+
+.menu{
+display:flex;
+gap:40px;
+}
+
+.menu a{
+text-transform:uppercase;
+font-size:.9rem;
+letter-spacing:2px;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#d87a47;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.70)),
+url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+
+.hero-content{
+max-width:820px;
+}
+
+.hero-sub{
+color:#d87a47;
+text-transform:uppercase;
+letter-spacing:5px;
+margin-bottom:20px;
+font-size:.9rem;
+}
+
+.hero h1{
+font-family:'Oswald',sans-serif;
+font-size:7rem;
+line-height:.92;
+text-transform:uppercase;
+margin-bottom:30px;
+}
+
+.hero p{
+font-size:1.15rem;
+line-height:1.9;
+color:rgba(255,255,255,.78);
+margin-bottom:35px;
+max-width:700px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:60px;
+}
+
+.btn{
+padding:18px 40px;
+border:1px solid #d87a47;
+text-transform:uppercase;
+letter-spacing:3px;
+font-size:.9rem;
+transition:.3s;
+display:inline-block;
+}
+
+.btn:hover{
+background:#d87a47;
+}
+
+.hero-boxes{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:20px;
+}
+
+.hero-box{
+background:rgba(0,0,0,.45);
+padding:35px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+}
+
+.hero-box h3{
+font-family:'Oswald',sans-serif;
+font-size:2rem;
+text-transform:uppercase;
+margin-bottom:20px;
+color:#d87a47;
+}
+
+.hero-box p{
+margin:0;
+font-size:1rem;
+line-height:1.8;
+}
+
+/* =========================
+FEATURES
+========================= */
+
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+background:#050505;
+border-top:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.feature{
+padding:50px 35px;
+border-right:1px solid rgba(255,255,255,.08);
+}
+
+.feature:last-child{
+border-right:none;
+}
+
+.feature-icon{
+font-size:2rem;
+margin-bottom:20px;
+color:#d87a47;
+}
+
+.feature h3{
+font-family:'Oswald',sans-serif;
+font-size:1.8rem;
+margin-bottom:15px;
+text-transform:uppercase;
+}
+
+.feature p{
+line-height:1.8;
+color:rgba(255,255,255,.7);
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+section{
+padding:120px 8%;
+}
+
+.section-sub{
+color:#d87a47;
+letter-spacing:5px;
+text-transform:uppercase;
+font-size:.9rem;
+margin-bottom:15px;
+}
+
+.section-title{
+font-family:'Oswald',sans-serif;
+font-size:5rem;
+text-transform:uppercase;
+margin-bottom:20px;
+}
+
+.section-description{
+max-width:800px;
+color:rgba(255,255,255,.75);
+line-height:1.9;
+font-size:1.1rem;
+margin-bottom:70px;
+}
+
+/* =========================
+TOURS
+========================= */
+
+.tours-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.tour-card{
+background:#111;
+border:1px solid rgba(255,255,255,.08);
+overflow:hidden;
+transition:.4s;
+}
+
+.tour-card:hover{
+transform:translateY(-8px);
+border-color:#d87a47;
+}
+
+.tour-image{
+height:360px;
+overflow:hidden;
+}
+
+.tour-image img{
+height:100%;
+object-fit:cover;
+transition:.6s;
+}
+
+.tour-card:hover img{
+transform:scale(1.07);
+}
+
+.tour-content{
+padding:30px;
+}
+
+.tour-content h3{
+font-family:'Oswald',sans-serif;
+font-size:2rem;
+text-transform:uppercase;
+margin-bottom:15px;
+}
+
+.tour-content p{
+color:rgba(255,255,255,.72);
+line-height:1.8;
+margin-bottom:20px;
+}
+
+.tour-info{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.price{
+color:#d9a066;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:.9rem;
+}
+
+.reserve-btn{
+padding:12px 18px;
+border:1px solid #d87a47;
+font-size:.8rem;
+text-transform:uppercase;
+letter-spacing:2px;
+transition:.3s;
+}
+
+.reserve-btn:hover{
+background:#d87a47;
+}
+
+/* =========================
+STORIES
+========================= */
+
+.story{
+margin-bottom:120px;
+background:#101010;
+border:1px solid rgba(255,255,255,.08);
+overflow:hidden;
+}
+
+.story-header{
+padding:50px;
+}
+
+.story-header h2{
+font-family:'Oswald',sans-serif;
+font-size:4rem;
+text-transform:uppercase;
+margin-bottom:15px;
+}
+
+.story-meta{
+color:#d87a47;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:.9rem;
+margin-bottom:30px;
+}
+
+.story-gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:0;
+}
+
+.story-gallery img{
+height:420px;
+object-fit:cover;
+}
+
+.story-content{
+padding:60px;
+}
+
+.story-content p{
+margin-bottom:25px;
+line-height:2;
+color:rgba(255,255,255,.78);
+font-size:1.05rem;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+}
+
+.contact-info h2{
+font-family:'Oswald',sans-serif;
+font-size:5rem;
+text-transform:uppercase;
+margin-bottom:30px;
+}
+
+.contact-info p{
+line-height:1.9;
+color:rgba(255,255,255,.75);
+margin-bottom:25px;
+}
+
+.contact-data{
+margin-top:40px;
+}
+
+.contact-data div{
+margin-bottom:25px;
+}
+
+.contact-data h4{
+color:#d87a47;
+text-transform:uppercase;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+
+.contact-form{
+background:#111;
+padding:45px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+input,
+textarea{
+width:100%;
+padding:18px;
+background:#1b1b1b;
+border:1px solid rgba(255,255,255,.08);
+margin-bottom:20px;
+color:white;
+font-size:1rem;
+}
+
+textarea{
+min-height:220px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:18px;
+background:#d87a47;
+border:none;
+color:white;
+text-transform:uppercase;
+letter-spacing:3px;
+cursor:pointer;
+font-size:1rem;
+transition:.3s;
+}
+
+button:hover{
+background:#ec8d58;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+padding:40px 8%;
+border-top:1px solid rgba(255,255,255,.08);
+text-align:center;
+color:rgba(255,255,255,.4);
+}
+
+/* =========================
+WHATSAPP
+========================= */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+padding:18px 30px;
+border-radius:100px;
+z-index:999;
+font-weight:700;
+color:black;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+.hero h1{
+font-size:4.5rem;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.hero-boxes{
+grid-template-columns:1fr;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.story-gallery{
+grid-template-columns:1fr;
+}
+
+.story-gallery img{
+height:300px;
+}
+
+.menu{
+display:none;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+<!-- =========================
+NAVBAR
+========================= -->
 
-  <nav>
+<nav>
 
-    <div class="nav-container">
+<div class="nav-container">
 
-      <div class="logo">
-        Extremo<br>Oeste
-      </div>
+<div class="logo">
+EXTREMO<br>OESTE
+</div>
 
-      <div class="menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#experiencias">Experiencias</a>
-        <a href="#historias">Historias</a>
-        <a href="#contacto">Contacto</a>
-      </div>
+<div class="menu">
+<a href="#inicio">Inicio</a>
+<a href="#experiencias">Experiencias</a>
+<a href="#historias">Historias</a>
+<a href="#contacto">Contacto</a>
+</div>
 
-    </div>
+</div>
 
-  </nav>
+</nav>
 
-  <!-- HERO -->
+<!-- =========================
+HERO
+========================= -->
 
-  <section class="hero" id="inicio">
+<section class="hero" id="inicio">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-      <div class="hero-sub">
-        Rutas Alternativas en Lima
-      </div>
+<div class="hero-sub">
+Turismo Cultural Alternativo
+</div>
 
-      <h1>
-        Descubre<br>
-        La Lima Real
-      </h1>
+<h1>
+Descubre<br>
+La Lima Real
+</h1>
 
-      <p>
-        Experiencias culturales alternativas más allá del turismo tradicional.
-        Historia viva, cultura urbana y recorridos auténticos.
-      </p>
+<p>
+Experiencias culturales auténticas más allá del turismo tradicional.
+Conoce la historia viva, los mercados, las calles y las personas que
+construyen la identidad de Lima.
+</p>
 
-      <a href="#experiencias" class="btn">
-        Explorar Experiencias
-      </a>
+<div class="hero-buttons">
 
-    </div>
+<a href="#experiencias" class="btn">
+Explorar Experiencias
+</a>
 
-  </section>
+</div>
 
-  <!-- FEATURES -->
+<div class="hero-boxes">
 
-  <div class="features">
+<div class="hero-box">
 
-    <div class="feature">
-      <h3>Experiencias Reales</h3>
-      <p>
-        Conecta con la vida cotidiana y la cultura viva de Lima.
-      </p>
-    </div>
+<h3>Visión</h3>
 
-    <div class="feature">
-      <h3>Historia Viva</h3>
-      <p>
-        Comprende el pasado para entender el presente.
-      </p>
-    </div>
+<p>
+Crear experiencias culturales profundas que permitan comprender Lima
+desde sus historias, contradicciones, tradiciones y vida cotidiana,
+promoviendo un turismo responsable y humano.
+</p>
 
-    <div class="feature">
-      <h3>Responsables</h3>
-      <p>
-        Turismo ético y consciente con la comunidad.
-      </p>
-    </div>
+</div>
 
-    <div class="feature">
-      <h3>Rutas Alternativas</h3>
-      <p>
-        Explora lugares fuera del circuito tradicional.
-      </p>
-    </div>
+<div class="hero-box">
 
-  </div>
+<h3>Servicios</h3>
 
-  <!-- EXPERIENCIAS -->
+<p>
+Tours culturales, experiencias gastronómicas, recorridos históricos,
+guiado urbano, rutas fotográficas, experiencias personalizadas y
+turismo alternativo para viajeros curiosos.
+</p>
 
-  <section id="experiencias">
+</div>
 
-    <div class="section-title">
+</div>
 
-      <div class="section-sub">
-        Experiencias
-      </div>
+</div>
 
-      <h2>Tours Guiados</h2>
+</section>
 
-    </div>
+<!-- =========================
+FEATURES
+========================= -->
 
-    <div class="tours">
+<div class="features">
 
-      <!-- TOUR -->
+<div class="feature">
 
-      <div class="tour-card">
+<div class="feature-icon">
+<i class="fa-solid fa-users"></i>
+</div>
 
-        <div class="tour-img">
-          <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=1200&auto=format&fit=crop">
-        </div>
+<h3>Experiencias Reales</h3>
 
-        <div class="tour-content">
+<p>
+Conecta con la cultura viva y la vida cotidiana de Lima.
+</p>
 
-          <h3>Lima Precolombina</h3>
+</div>
 
-          <p>
-            Huacas milenarias y arqueología escondida dentro de Lima.
-          </p>
+<div class="feature">
 
-          <div class="price">
-            Desde $65 por persona
-          </div>
+<div class="feature-icon">
+<i class="fa-solid fa-landmark"></i>
+</div>
 
-        </div>
+<h3>Historia Viva</h3>
 
-      </div>
+<p>
+Comprende el pasado para entender el presente de la ciudad.
+</p>
 
-      <!-- TOUR -->
+</div>
 
-      <div class="tour-card">
+<div class="feature">
 
-        <div class="tour-img">
-          <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
-        </div>
+<div class="feature-icon">
+<i class="fa-solid fa-leaf"></i>
+</div>
 
-        <div class="tour-content">
+<h3>Responsables</h3>
 
-          <h3>Mercado Central</h3>
+<p>
+Turismo ético, consciente y cercano a las comunidades locales.
+</p>
 
-          <p>
-            Gastronomía, comercio popular y cultura urbana limeña.
-          </p>
+</div>
 
-          <div class="price">
-            Desde $55 por persona
-          </div>
+<div class="feature">
 
-        </div>
+<div class="feature-icon">
+<i class="fa-solid fa-location-dot"></i>
+</div>
 
-      </div>
+<h3>Rutas Alternativas</h3>
 
-      <!-- TOUR -->
+<p>
+Explora lugares fuera del circuito turístico convencional.
+</p>
 
-      <div class="tour-card">
+</div>
 
-        <div class="tour-img">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
-        </div>
+</div>
 
-        <div class="tour-content">
+<!-- =========================
+EXPERIENCIAS
+========================= -->
 
-          <h3>El Mar y Las Lomas</h3>
+<section id="experiencias">
 
-          <p>
-            Naturaleza costera, lomas y ecología limeña.
-          </p>
+<div class="section-sub">
+Experiencias
+</div>
 
-          <div class="price">
-            Desde $50 por persona
-          </div>
+<h2 class="section-title">
+Tours Guiados
+</h2>
 
-        </div>
+<p class="section-description">
+Explora Lima desde perspectivas culturales, históricas y urbanas
+mediante recorridos auténticos diseñados para viajeros curiosos.
+</p>
 
-      </div>
+<div class="tours-grid">
 
-    </div>
+<!-- 1 -->
 
-  </section>
+<div class="tour-card">
 
-  <!-- HISTORIAS -->
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-  <section id="historias">
+<div class="tour-content">
 
-    <div class="section-title">
+<h3>Lima Precolombina</h3>
 
-      <div class="section-sub">
-        Historias
-      </div>
+<p>
+Huacas milenarias, arqueología urbana y memoria ancestral.
+</p>
 
-      <h2>Historias de Lima</h2>
+<div class="tour-info">
+<div class="price">$65 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-    </div>
+</div>
 
-    <div class="stories">
+</div>
 
-      <div class="story">
+<!-- 2 -->
 
-        <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
+<div class="tour-card">
 
-        <div class="story-content">
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-          <h3>Barranco de Noche</h3>
+<div class="tour-content">
 
-          <p>
-            Música, arte urbano y cultura alternativa en el distrito bohemio de Lima.
-          </p>
+<h3>Mercado Central</h3>
 
-        </div>
+<p>
+Comercio popular, gastronomía y cultura cotidiana limeña.
+</p>
 
-      </div>
+<div class="tour-info">
+<div class="price">$55 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-      <div class="story">
+</div>
 
-        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-        <div class="story-content">
+<!-- 3 -->
 
-          <h3>Mercados Populares</h3>
+<div class="tour-card">
 
-          <p>
-            Historias humanas detrás de los mercados tradicionales limeños.
-          </p>
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-        </div>
+<div class="tour-content">
 
-      </div>
+<h3>El Mar y Las Lomas</h3>
 
-      <div class="story">
+<p>
+Naturaleza costera y paisajes ocultos de Lima.
+</p>
 
-        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+<div class="tour-info">
+<div class="price">$50 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-        <div class="story-content">
+</div>
 
-          <h3>La Costa Limeña</h3>
+</div>
 
-          <p>
-            El mar, la neblina y la vida cotidiana frente al Pacífico.
-          </p>
+<!-- 4 -->
 
-        </div>
+<div class="tour-card">
 
-      </div>
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-    </div>
+<div class="tour-content">
 
-  </section>
+<h3>Cocina Limeña</h3>
 
-  <!-- CONTACTO -->
+<p>
+Mercados, cocina peruana y experiencias gastronómicas.
+</p>
 
-  <section id="contacto">
+<div class="tour-info">
+<div class="price">$65 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-    <div class="contact-grid">
+</div>
 
-      <div class="contact-info">
+</div>
 
-        <div class="section-sub">
-          Contacto
-        </div>
+<!-- 5 -->
 
-        <h3>Contáctanos</h3>
+<div class="tour-card">
 
-        <p>
-          Escríbenos para reservar experiencias, realizar propuestas
-          o solicitar tours personalizados.
-        </p>
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-        <p>
-          <strong>WhatsApp:</strong><br>
-          +51 987 654 321
-        </p>
+<div class="tour-content">
 
-        <p>
-          <strong>Email:</strong><br>
-          hola@extremooeste.pe
-        </p>
+<h3>Barranco Nocturno</h3>
 
-        <p>
-          <strong>Ubicación:</strong><br>
-          Lima, Perú
-        </p>
+<p>
+Arte, música y vida nocturna alternativa en Lima.
+</p>
 
-      </div>
+<div class="tour-info">
+<div class="price">$45 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-      <!-- FORM -->
+</div>
 
-      <div class="contact-form">
+</div>
 
-        <form action="mailto:hola@extremooeste.pe" method="POST" enctype="text/plain">
+<!-- 6 -->
 
-          <input type="text" placeholder="Nombre" required>
+<div class="tour-card">
 
-          <input type="email" placeholder="Correo electrónico" required>
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-          <textarea placeholder="Escribe tu propuesta o pregunta"></textarea>
+<div class="tour-content">
 
-          <button type="submit">
-            Enviar Mensaje
-          </button>
+<h3>Callao Cultural</h3>
 
-        </form>
+<p>
+Murales, puerto histórico y cultura popular chalaca.
+</p>
 
-      </div>
+<div class="tour-info">
+<div class="price">$55 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
-  <!-- FOOTER -->
+<!-- 7 -->
 
-  <footer>
+<div class="tour-card">
 
-    © 2026 Extremo Oeste · Turismo Cultural Alternativo en Lima
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-  </footer>
+<div class="tour-content">
 
-  <!-- WHATSAPP -->
+<h3>Ruta Fotográfica</h3>
 
-  <a
-    href="https://wa.me/51987654321"
-    class="whatsapp"
-    target="_blank">
+<p>
+Recorrido visual por la arquitectura y la vida urbana.
+</p>
 
-    WhatsApp
+<div class="tour-info">
+<div class="price">$60 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
 
-  </a>
+</div>
+
+</div>
+
+<!-- 8 -->
+
+<div class="tour-card">
+
+<div class="tour-image">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="tour-content">
+
+<h3>Gamarra Experience</h3>
+
+<p>
+Moda popular, emprendimiento y economía urbana.
+</p>
+
+<div class="tour-info">
+<div class="price">$40 por persona</div>
+<a href="#" class="reserve-btn">Reservar</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+HISTORIAS
+========================= -->
+
+<section id="historias">
+
+<div class="section-sub">
+Historias
+</div>
+
+<h2 class="section-title">
+Historias de Lima
+</h2>
+
+<p class="section-description">
+Relatos urbanos, cultura popular, memoria histórica y experiencias
+humanas que revelan la identidad más auténtica de la ciudad.
+</p>
+
+<!-- STORY -->
+
+<div class="story">
+
+<div class="story-header">
+
+<h2>La Lima Invisible</h2>
+
+<div class="story-meta">
+Cultura Urbana • Historia • Lima
+</div>
+
+</div>
+
+<div class="story-gallery">
+
+<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="story-content">
+
+<p>
+Lima es una ciudad llena de contrastes. Más allá de las postales
+turísticas y los barrios tradicionales, existe una ciudad paralela
+construida por historias humanas, comercio popular, migraciones,
+memoria y resistencia cultural.
+</p>
+
+<p>
+En sus calles conviven mercados históricos, vendedores ambulantes,
+artistas urbanos, cocineros tradicionales y comunidades enteras que
+mantienen viva la identidad de la ciudad. Cada barrio posee una
+narrativa distinta, marcada por la transformación social y la mezcla
+cultural.
+</p>
+
+<p>
+Explorar Lima desde esta perspectiva permite comprender no solo su
+historia colonial o prehispánica, sino también los procesos modernos
+que dieron forma a la ciudad contemporánea. Desde los antiguos
+callejones del centro histórico hasta los mercados populares y las
+zonas costeras, la ciudad revela constantemente nuevas capas de
+identidad.
+</p>
+
+<p>
+Estas historias buscan mostrar una Lima más humana, imperfecta,
+compleja y auténtica. Una ciudad donde la cultura no se encuentra
+solamente en museos, sino también en las calles, los sonidos, los
+sabores y las experiencias cotidianas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+CONTACTO
+========================= -->
+
+<section id="contacto">
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<div class="section-sub">
+Contacto
+</div>
+
+<h2>Contáctanos</h2>
+
+<p>
+Escríbenos para reservar experiencias, coordinar tours personalizados
+o realizar consultas sobre nuestros recorridos culturales.
+</p>
+
+<div class="contact-data">
+
+<div>
+<h4>WhatsApp</h4>
+<p>+51 987 654 321</p>
+</div>
+
+<div>
+<h4>Email</h4>
+<p>hola@extremooeste.pe</p>
+</div>
+
+<div>
+<h4>Ubicación</h4>
+<p>Lima, Perú</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-form">
+
+<form action="mailto:hola@extremooeste.pe" method="POST" enctype="text/plain">
+
+<input type="text" placeholder="Nombre" required>
+
+<input type="email" placeholder="Correo electrónico" required>
+
+<textarea placeholder="Escribe tu propuesta o pregunta"></textarea>
+
+<button type="submit">
+Enviar Mensaje
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+© 2026 EXTREMO OESTE · Turismo Cultural Alternativo en Lima
+
+</footer>
+
+<!-- =========================
+WHATSAPP FLOAT
+========================= -->
+
+<a
+href="https://wa.me/51987654321"
+target="_blank"
+class="whatsapp">
+
+<i class="fa-brands fa-whatsapp"></i>
+ WhatsApp
+
+</a>
 
 </body>
 </html>
