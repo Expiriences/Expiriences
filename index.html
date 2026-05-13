@@ -1,20 +1,19 @@
 <!-- =====================================================
-EXTREMO OESTE — VERSION COMPLETA CORREGIDA
+EXTREMO OESTE — VERSION EDITABLE Y ORGANIZADA
 =====================================================
 
-VERSION FINAL:
-✅ MODALES CORREGIDOS
-✅ IDs CORRECTOS
-✅ JAVASCRIPT LIMPIO
-✅ SIN ERRORES DE COMILLAS
-✅ RESPONSIVE
-✅ GITHUB PAGES READY
-✅ FACIL DE EDITAR
-✅ SECCIONES BIEN MARCADAS
-✅ HERO VIDEO OPCIONAL
-✅ EXPERIENCIAS EDITABLES
-✅ HISTORIAS EDITABLES
-✅ WHATSAPP FLOTANTE
+ESTA VERSION ESTA PREPARADA PARA:
+
+✅ GitHub Pages
+✅ Cambiar textos facilmente
+✅ Cambiar imagenes facilmente
+✅ Cambiar videos facilmente
+✅ Scroll horizontal
+✅ Ventanas emergentes (MODALS)
+✅ 8 experiencias
+✅ 3 historias
+✅ WhatsApp flotante
+✅ Responsive
 
 =====================================================
 GUIA RAPIDA
@@ -24,7 +23,7 @@ GUIA RAPIDA
 BUSCAR:
 "HERO BACKGROUND IMAGE"
 
-2. ACTIVAR VIDEO HERO
+2. USAR VIDEO HERO
 BUSCAR:
 "HERO VIDEO"
 
@@ -32,17 +31,17 @@ BUSCAR:
 BUSCAR:
 "EXPERIENCIA 1"
 
-4. CAMBIAR MODALES
-BUSCAR:
-"MODAL EXPERIENCIA 1"
-
-5. CAMBIAR HISTORIAS
+4. CAMBIAR HISTORIAS
 BUSCAR:
 "HISTORIA 1"
 
-6. CAMBIAR WHATSAPP
+5. CAMBIAR WHATSAPP
 BUSCAR:
 "WHATSAPP NUMBER"
+
+6. CAMBIAR EMAIL
+BUSCAR:
+"EMAIL EMPRESA"
 
 ===================================================== -->
 
@@ -53,15 +52,19 @@ BUSCAR:
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>Extremo Oeste | Turismo Cultural</title>
+<title>
+Extremo Oeste | Turismo Cultural
+</title>
 
 <!-- =====================================================
 GOOGLE FONTS
 ===================================================== -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
 href="https://fonts.gstatic.com"
@@ -71,7 +74,7 @@ crossorigin>
 rel="stylesheet">
 
 <!-- =====================================================
-FONT AWESOME
+FONT AWESOME ICONS
 ===================================================== -->
 
 <link rel="stylesheet"
@@ -184,7 +187,7 @@ padding:0 8%;
 HERO VIDEO
 PARA ACTIVAR VIDEO:
 
-1. QUITAR COMENTARIOS
+1. QUITAR LOS COMENTARIOS
 2. SUBIR VIDEO A:
 videos/lima.mp4
 
@@ -315,7 +318,7 @@ margin-bottom:60px;
 }
 
 /* =====================================================
-SLIDER
+SCROLL HORIZONTAL
 ===================================================== */
 
 .slider-container{
@@ -336,7 +339,7 @@ display:none;
 }
 
 /* =====================================================
-ARROWS
+FLECHAS
 ===================================================== */
 
 .arrow{
@@ -368,7 +371,7 @@ right:-20px;
 }
 
 /* =====================================================
-TOUR CARDS
+EXPERIENCIAS
 ===================================================== */
 
 .tour-card{
@@ -426,7 +429,7 @@ text-transform:uppercase;
 }
 
 /* =====================================================
-MODALS
+MODAL EXPERIENCIAS
 ===================================================== */
 
 .modal{
@@ -486,7 +489,7 @@ margin-bottom:25px;
 }
 
 /* =====================================================
-STORIES
+HISTORIAS
 ===================================================== */
 
 .story-card{
@@ -525,10 +528,15 @@ margin-bottom:25px;
 }
 
 /* =====================================================
-CONTACT
+CONTACTO
 ===================================================== */
 
 .contact-section{
+
+/* =====================================================
+CONTACT BACKGROUND IMAGE
+CAMBIAR IMAGEN AQUI
+===================================================== */
 
 background:
 linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
@@ -651,10 +659,6 @@ display:none;
 grid-template-columns:1fr;
 }
 
-.modal-content h2{
-font-size:2.5rem;
-}
-
 }
 
 </style>
@@ -687,10 +691,11 @@ EXTREMO<br>OESTE
 </nav>
 
 <!-- =====================================================
-HERO
+INICIO
 ===================================================== -->
 
-<section class="hero" id="inicio">
+<section class="hero"
+id="inicio">
 
 <!-- =====================================================
 HERO VIDEO
@@ -725,20 +730,87 @@ La Lima Real
 
 <p>
 
-AQUI PUEDES CAMBIAR EL TEXTO PRINCIPAL.
+AQUI PUEDES CAMBIAR EL TEXTO PRINCIPAL DEL HERO.
 
-Describe tu empresa, filosofía turística,
-experiencias y estilo de viaje.
+Describe la visión, filosofía y experiencias culturales
+de tu empresa turística.
 
 </p>
 
-<a href="#experiencias" class="btn">
+<a href="#experiencias"
+class="btn">
+
 Explorar Experiencias
+
 </a>
 
 </div>
 
 </section>
+
+<!-- =====================================================
+FEATURES
+===================================================== -->
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">
+<i class="fa-solid fa-users"></i>
+</div>
+
+<h3>Experiencias Reales</h3>
+
+<p>
+Conecta con la cultura viva de Lima.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+<i class="fa-solid fa-landmark"></i>
+</div>
+
+<h3>Historia Viva</h3>
+
+<p>
+Comprende el pasado y presente de la ciudad.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+<i class="fa-solid fa-leaf"></i>
+</div>
+
+<h3>Responsables</h3>
+
+<p>
+Turismo ético y sostenible.
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+
+<h3>Rutas Alternativas</h3>
+
+<p>
+Explora lugares fuera del turismo convencional.
+</p>
+
+</div>
+
+</div>
 
 <!-- =====================================================
 EXPERIENCIAS
@@ -755,7 +827,8 @@ Tours Guiados
 </h2>
 
 <p class="section-description">
-Haz click en cada experiencia para abrir el modal.
+Usa las flechas para desplazarte horizontalmente.
+Haz click sobre cada experiencia para abrir la descripción completa.
 </p>
 
 <div class="slider-container">
@@ -779,6 +852,11 @@ id="experiencesScroll">
 
 <!-- =====================================================
 EXPERIENCIA 1
+CAMBIAR:
+- IMAGEN
+- TITULO
+- TEXTO
+- PRECIO
 ===================================================== -->
 
 <div class="tour-card"
@@ -824,7 +902,7 @@ onclick="openModal('modal2')">
 <h3>Mercado Central</h3>
 
 <p>
-Gastronomía y cultura popular.
+Gastronomía y comercio popular.
 </p>
 
 <div class="price">
@@ -835,7 +913,7 @@ $55 por persona
 
 </div>
 
-<!-- =====================================================
+  <!-- =====================================================
 EXPERIENCIA 3
 ===================================================== -->
 
@@ -853,7 +931,7 @@ onclick="openModal('modal3')">
 <h3>Barranco Nocturno</h3>
 
 <p>
-Arte urbano y vida nocturna cultural.
+Arte urbano, bares históricos y música local.
 </p>
 
 <div class="price">
@@ -863,6 +941,160 @@ $45 por persona
 </div>
 
 </div>
+
+  <!-- =====================================================
+EXPERIENCIA 4
+===================================================== -->
+
+<div class="tour-card"
+onclick="openModal('modal4')">
+
+<div class="tour-image">
+
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=formed&fit=crop">
+
+</div>
+
+<div class="tour-content">
+
+<h3>Cocina Limeña</h3>
+
+<p>
+Sabores tradicionales y gastronomía contemporánea.
+</p>
+
+<div class="price">
+$70 por persona
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCIA 5
+===================================================== -->
+
+<div class="tour-card"
+onclick="openModal('modal5')">
+
+<div class="tour-image">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=formed&fit=crop">
+
+</div>
+
+<div class="tour-content">
+
+<h3>Lomas de Lima</h3>
+
+<p>
+Naturaliza costera y paisajes ecológicos.
+</p>
+
+<div class="price">
+$50 por persona
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCE 6
+===================================================== -->
+
+<div class="tour-card"
+onclick="openModal('modal6')">
+
+<div class="tour-image">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=formed&fit=crop">
+
+</div>
+
+<div class="tour-content">
+
+<h3>Callao Cultural</h3>
+
+<p>
+Murals, historic port and urban art.
+</p>
+
+<div class="price">
+$60 per person
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCE 7
+===================================================== -->
+
+<div class="tour-card"
+onclick="openModal('modal7')">
+
+<div class="tour-image">
+
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=formed&fit=crop">
+
+</div>
+
+<div class="tour-content">
+
+<h3>Photographic Route</h3>
+
+<p>
+Architecture, urban portraits and documentary photography.
+</p>
+
+<div class="price">
+$55 per person
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCE 8
+===================================================== -->
+
+<div class="tour-card"
+onclick="openModal('modal8')">
+
+<div class="tour-image">
+
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=formed&fit=crop">
+
+</div>
+
+<div class="tour-content">
+
+<h3>Gamarra Experience</h3>
+
+<p>
+Popular fashion and urban economy of Lima.
+</p>
+
+<div class="price">
+$40 per person
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+AQUI PUEDES DUPLICAR MAS EXPERIENCIAS
+HASTA 8 O MAS
+===================================================== -->
 
 </div>
 
@@ -874,7 +1106,8 @@ $45 por persona
 MODAL EXPERIENCIA 1
 ===================================================== -->
 
-<div id="modal1" class="modal">
+<div id="modal1"
+class="modal">
 
 <div class="modal-content">
 
@@ -889,16 +1122,18 @@ onclick="closeModal('modal1')">
 
 <p>
 
-AQUI PUEDES CAMBIAR TODO EL CONTENIDO DEL MODAL.
+AQUI PUEDES ESCRIBIR LA DESCRIPCION COMPLETA
+DE LA EXPERIENCIA.
 
-Incluye:
+Puedes agregar:
 
 - duración
-- horarios
 - itinerario
-- transporte
-- comidas
+- horarios
+- puntos visitados
 - recomendaciones
+- transporte
+- comidas incluidas
 
 </p>
 
@@ -914,7 +1149,8 @@ Precio: $65 por persona.
 MODAL EXPERIENCIA 2
 ===================================================== -->
 
-<div id="modal2" class="modal">
+<div id="modal2"
+class="modal">
 
 <div class="modal-content">
 
@@ -929,8 +1165,7 @@ onclick="closeModal('modal2')">
 
 <p>
 
-Explora sabores tradicionales,
-mercados históricos y gastronomía local.
+Describe aquí la experiencia gastronómica y cultural.
 
 </p>
 
@@ -946,39 +1181,387 @@ Precio: $55 por persona.
 MODAL EXPERIENCIA 3
 ===================================================== -->
 
-<div id="modal3" class="modal">
+<div id="modal3"
+class="modal">
 
 <div class="modal-content">
 
 <span class="close"
-onclick="closeModal('modal3')">
+onclick="closeModal(‘modal3’)">
 
 &times;
 
 </span>
 
-<h2>Barranco Nocturno</h2>
+<h2>Night Ravine</h2>
 
 <p>
-
-Tour cultural nocturno.
-
-Incluye:
-
-- arte urbano
-- bares históricos
-- música local
-- fotografía nocturna
-
+Describe the cultural night tour here.
 </p>
 
 <p>
-Precio: $45 por persona.
+Precio: $45 per persona.
 </p>
 
 </div>
 
 </div>
+
+
+<!-- =====================================================
+MODAL EXPERIENCIA 4
+===================================================== -->
+
+<div id="modal4"
+class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeModal('modal4')">
+
+&times;
+
+</span>
+
+<h2>Cocina Limeña</h2>
+
+<p>
+Describe the dining experience here.
+</p>
+
+<p>
+Price: $70 per person.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCE MODAL 5
+===================================================== -->
+
+<div id="modal5"
+class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeModal('modal5')">
+
+&times;
+
+</span>
+
+<h2>Lomas de Lima</h2>
+
+<p>
+Describe aquí la experimentia ecológica.
+</p>
+
+<p>
+Precio: $50 por persona.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+MODAL EXPERIENCE 6
+===================================================== -->
+
+<div id="modal3"
+class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeModal('modal6')">
+
+&times;
+
+</span>
+
+<h2>Callao Cultural</h2>
+
+<p>
+Describe the cultural journey here.
+</p>
+
+<p>
+Price: $60 per person.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCE MODAL 7
+===================================================== -->
+
+<div id="modal7"
+class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeModal('modal7')">
+
+&times;
+
+</span>
+
+<h2>Photographic Route</h2>
+
+<p>
+Describe the photography experience here.
+</p>
+
+<p>
+Price: $55 per person.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+EXPERIENCE MODAL 8
+===================================================== -->
+
+<div id="modal8"
+class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeModal( 'modal8')">
+
+&times;
+
+</span>
+
+<h2>Gamarra Experience</h2>
+
+<p>
+Describe the urban experience here.
+</p>
+
+<p>
+Price: $40 per person.
+</p>
+
+</div>
+
+</div>
+  
+<!-- =====================================================
+HISTORIAS
+===================================================== -->
+
+<section id="historias">
+
+<div class="section-sub">
+Historias
+</div>
+
+<h2 class="section-title">
+Historias de Lima
+</h2>
+
+<p class="section-description">
+Espacio para artículos largos, fotografía y narrativa cultural.
+</p>
+
+<div class="slider-container">
+
+<button class="arrow arrow-left"
+onclick="scrollLeftCustom('storiesScroll')">
+
+<i class="fa-solid fa-chevron-left"></i>
+
+</button>
+
+<button class="arrow arrow-right"
+onclick="scrollRightCustom('storiesScroll')">
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</button>
+
+<div class="horizontal-scroll"
+id="storiesScroll">
+
+<!-- =====================================================
+HISTORIA 1
+===================================================== -->
+
+<div class="story-card">
+
+<div class="story-gallery">
+
+<!-- FOTO 1 -->
+
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
+
+<!-- FOTO 2 -->
+
+<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="story-content">
+
+<h2>La Lima Invisible</h2>
+
+<p>
+
+AQUI PUEDES ESCRIBIR HISTORIAS DE HASTA 800 PALABRAS.
+
+Puedes incluir:
+
+- historia urbana
+- memoria cultural
+- gastronomía
+- relatos sociales
+- fotografía documental
+- turismo alternativo
+
+Duplica este bloque para crear más historias.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+HISTORIA 2
+===================================================== -->
+
+<div class="story-card">
+
+<div class="story-gallery">
+
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="story-content">
+
+<h2>Mercados y Memoria</h2>
+
+<p>
+
+Espacio para textos largos acompañados de dos fotografías.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+HISTORIA 3
+===================================================== -->
+
+<div class="story-card">
+
+<div class="story-gallery">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="story-content">
+
+<h2>Noches de Barranco</h2>
+
+<p>
+
+Describe aquí otra historia cultural.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+CONTACTO
+===================================================== -->
+
+<section id="contacto"
+class="contact-section">
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<div class="section-sub">
+Contacto
+</div>
+
+<h2>Contáctanos</h2>
+
+<p>
+
+WHATSAPP NUMBER:
++51 987 654 321
+
+</p>
+
+<p>
+
+EMAIL EMPRESA:
+hola@extremooeste.pe
+
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<form>
+
+<input type="text"
+placeholder="Nombre">
+
+<input type="email"
+placeholder="Correo">
+
+<textarea
+placeholder="Mensaje">
+</textarea>
+
+<button type="submit">
+Enviar Mensaje
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- =====================================================
 WHATSAPP
@@ -1001,7 +1584,7 @@ JAVASCRIPT
 <script>
 
 /* =====================================================
-SCROLL
+SCROLL EXPERIENCIAS / HISTORIAS
 ===================================================== */
 
 function scrollLeftCustom(id){
@@ -1034,12 +1617,8 @@ ABRIR MODAL
 
 function openModal(id){
 
-const modal =
-document.getElementById(id);
-
-modal.style.display = "block";
-
-document.body.style.overflow = "hidden";
+document.getElementById(id).style.display =
+"block";
 
 }
 
@@ -1049,12 +1628,8 @@ CERRAR MODAL
 
 function closeModal(id){
 
-const modal =
-document.getElementById(id);
-
-modal.style.display = "none";
-
-document.body.style.overflow = "auto";
+document.getElementById(id).style.display =
+"none";
 
 }
 
@@ -1062,48 +1637,33 @@ document.body.style.overflow = "auto";
 CERRAR MODAL HACIENDO CLICK FUERA
 ===================================================== */
 
-window.addEventListener('click', function(event){
+window.onclick = function(event){
 
 const modals =
 document.querySelectorAll('.modal');
 
 modals.forEach(modal => {
 
-if(event.target === modal){
+if(event.target == modal){
 
 modal.style.display = "none";
-document.body.style.overflow = "auto";
 
 }
 
 });
 
-});
-
-/* =====================================================
-CERRAR MODAL CON ESC
-===================================================== */
-
-document.addEventListener('keydown', function(event){
-
-if(event.key === "Escape"){
-
-const modals =
-document.querySelectorAll('.modal');
-
-modals.forEach(modal => {
-
-modal.style.display = "none";
-
-});
-
-document.body.style.overflow = "auto";
-
 }
-
-});
 
 </script>
 
 </body>
 </html>
+
+});
+
+};
+
+
+
+
+
