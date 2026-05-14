@@ -1,311 +1,332 @@
-<!-- =====================================================
-EXTREMO OESTE — VERSION AGENCIA (ULTRA EDITABLE / SEÑALIZADA)
-====================================================
-
-ESTA VERSION ESTA DISEÑADA PARA QUE PUEDAS EDITAR TODO SIN ROMPER EL CODIGO
-
-🔴 CAMBIAR IMAGENES → BUSCA: IMAGE
-🔵 CAMBIAR TEXTOS → BUSCA: TEXT
-🟡 CAMBIAR PRECIOS → BUSCA: PRICE
-🟢 CAMBIAR LINKS → BUSCA: LINK
-
-==================================================== -->
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Extremo Oeste | Agencia de Turismo</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<title>Extremo Oeste | Turismo Cultural</title>
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
-/* =========================
-BASE
-========================= */
-body{
+/* ===================== RESET ===================== */
+*{
 margin:0;
-font-family:'Inter',sans-serif;
-background:#0b0b0b;
-color:white;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
-img{width:100%;display:block;}
 
-/* =========================
-NAV (EDIT TEXT LOGO)
-========================= */
+body{
+background:#080808;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+img{width:100%;display:block;}
+a{text-decoration:none;color:white;}
+
+/* ===================== NAV ===================== */
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,.7);
-z-index:999;
+z-index:1000;
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav-container{
+max-width:1400px;
+margin:auto;
+padding:20px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 20px;
 }
 
 .logo{
 font-family:'Oswald';
-font-size:20px;
+font-size:2rem;
+font-weight:700;
+text-transform:uppercase;
+}
+
+.menu{
+display:flex;
+gap:30px;
 }
 
 .menu a{
-margin-left:15px;
 text-transform:uppercase;
-font-size:12px;
+font-size:.9rem;
+letter-spacing:2px;
 }
 
-/* =========================
-HERO SECTION
-========================= */
+/* ===================== HERO ===================== */
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
-padding:20px;
+padding:0 8%;
 background:
 linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c'); /* IMAGE HERO */
+url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
 background-size:cover;
 background-position:center;
 }
 
 .hero h1{
 font-family:'Oswald';
-font-size:clamp(32px,6vw,70px);
+font-size:6rem;
+line-height:1;
 }
 
 .hero p{
 max-width:600px;
-opacity:.8;
+margin-top:20px;
+line-height:1.8;
+color:rgba(255,255,255,.8);
 }
 
 .btn{
 display:inline-block;
-padding:12px 20px;
+margin-top:30px;
+padding:15px 35px;
 border:1px solid #d77c4a;
-margin-top:15px;
+text-transform:uppercase;
+letter-spacing:2px;
 }
 
-/* =========================
-SECTION BASE
-========================= */
+/* ===================== SECTIONS ===================== */
 section{
-padding:60px 20px;
+padding:100px 8%;
 }
 
 .section-title{
 font-family:'Oswald';
-font-size:32px;
-text-transform:uppercase;
+font-size:4rem;
+margin-bottom:30px;
 }
 
-.section-sub{
-color:#d77c4a;
-font-size:12px;
-letter-spacing:2px;
-}
-
-/* =========================
-CARDS (EXPERIENCIAS)
-========================= */
-.scroll{
+/* ===================== SCROLL ===================== */
+.horizontal-scroll{
 display:flex;
+gap:20px;
 overflow-x:auto;
-gap:15px;
+scroll-behavior:smooth;
+padding-bottom:20px;
 }
 
-.card{
-min-width:80%;
-background:#151515;
+.tour-card{
+min-width:320px;
+background:#111;
+border:1px solid rgba(255,255,255,.08);
+cursor:pointer;
+transition:.3s;
+}
+
+.tour-card:hover{
+transform:scale(1.03);
+}
+
+.tour-content{
+padding:20px;
+}
+
+/* ===================== MODAL ===================== */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+z-index:9999;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.modal-box{
+background:#111;
+padding:40px;
+max-width:600px;
+width:100%;
 border:1px solid rgba(255,255,255,.1);
+position:relative;
 }
 
-.card img{
-height:200px;
-object-fit:cover;
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:25px;
+cursor:pointer;
+color:#d77c4a;
 }
 
-.card-content{
-padding:15px;
-}
-
-.card h3{
-font-family:'Oswald';
-font-size:18px;
-}
-
-.card p{
-opacity:.7;
-font-size:13px;
-}
-
-/* =========================
-WHATSAPP
-========================= */
+/* ===================== WHATSAPP ===================== */
 .whatsapp{
 position:fixed;
-bottom:15px;
-right:15px;
+bottom:20px;
+right:20px;
 background:#25D366;
-padding:10px 15px;
+padding:15px 20px;
 border-radius:50px;
-font-size:12px;
+font-weight:bold;
 color:black;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:768px){
+.hero h1{font-size:3.5rem;}
+.menu{display:none;}
 }
 
 </style>
 </head>
+
 <body>
 
-<!-- =========================
-NAVBAR (TEXT EDIT HERE)
-========================= -->
+<!-- NAV -->
 <nav>
 <div class="nav-container">
-
-<!-- TEXT LOGO -->
-<div class="logo">EXTREMO OESTE</div>
-
+<div class="logo">Extremo<br>Oeste</div>
 <div class="menu">
-<a href="#inicio">Inicio</a>
 <a href="#experiencias">Experiencias</a>
-<a href="#historias">Historias</a>
 <a href="#contacto">Contacto</a>
 </div>
-
 </div>
 </nav>
 
-<!-- =========================
-HERO SECTION
-========================= -->
-<section class="hero" id="inicio">
+<!-- HERO -->
+<section class="hero">
 <div>
-
-<!-- TEXT HERO TITLE -->
-<h1>Descubre la Lima Real</h1>
-
-<!-- TEXT HERO DESCRIPTION -->
-<p>
-AQUI EDITAS EL TEXTO PRINCIPAL DEL HERO.
-Describe tu empresa, estilo o propuesta de valor.
-</p>
-
-<!-- LINK BUTTON -->
-<a class="btn" href="#experiencias">Ver Experiencias</a>
-
+<h1>Descubre<br>Lima Real</h1>
+<p>Turismo cultural alternativo con experiencias auténticas.</p>
+<a href="#experiencias" class="btn">Explorar</a>
 </div>
 </section>
 
-<!-- =========================
-EXPERIENCIAS
-========================= -->
+<!-- EXPERIENCIAS -->
 <section id="experiencias">
 
-<div class="section-sub">EXPERIENCIAS</div>
-<div class="section-title">Tours Destacados</div>
+<h2 class="section-title">Experiencias</h2>
 
-<div class="scroll">
+<div class="horizontal-scroll">
 
-<!-- =========================
-CARD 1 (EDIT IMAGE + TEXT + PRICE)
-========================= -->
-<div class="card">
-
-<!-- IMAGE -->
+<div class="tour-card" onclick="openModal('modal1')">
 <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849">
-
-<div class="card-content">
-
-<!-- TEXT TITLE -->
+<div class="tour-content">
 <h3>Lima Precolombina</h3>
-
-<!-- TEXT DESCRIPTION -->
 <p>Huacas y arqueología urbana.</p>
-
-<!-- PRICE -->
-<p><b>PRICE:</b> $65</p>
-
 </div>
 </div>
 
-<!-- =========================
-CARD 2
-========================= -->
-<div class="card">
+<div class="tour-card" onclick="openModal('modal2')">
 <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
-<div class="card-content">
-<h3>Mercados Locales</h3>
-<p>Gastronomía auténtica.</p>
-<p><b>PRICE:</b> $55</p>
+<div class="tour-content">
+<h3>Mercado Central</h3>
+<p>Gastronomía local.</p>
 </div>
 </div>
 
-<!-- =========================
-CARD 3
-========================= -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519501025264-5ea266f8880c">
-<div class="card-content">
+<div class="tour-card" onclick="openModal('modal3')">
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
+<div class="tour-content">
 <h3>Barranco Nocturno</h3>
-<p>Arte urbano y vida nocturna.</p>
-<p><b>PRICE:</b> $45</p>
+<p>Arte y vida nocturna.</p>
 </div>
 </div>
 
 </div>
 </section>
 
-<!-- =========================
-HISTORIAS
-========================= -->
-<section id="historias">
+<!-- MODAL ÚNICO -->
+<div id="modal" class="modal">
+<div class="modal-box">
 
-<div class="section-sub">HISTORIAS</div>
-<div class="section-title">Narrativas Urbanas</div>
+<span class="close" onclick="closeModal()">×</span>
 
-<div class="scroll">
+<h2 id="modalTitle"></h2>
+<p id="modalContent"></p>
+<p id="modalPrice"></p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<div class="card-content">
-<h3>Memoria de Lima</h3>
-<p>AQUI PUEDES ESCRIBIR HISTORIAS LARGAS.</p>
 </div>
 </div>
 
-</div>
-</section>
-
-<!-- =========================
-CONTACTO
-========================= -->
+<!-- CONTACTO -->
 <section id="contacto">
 
-<div class="section-sub">CONTACTO</div>
-<div class="section-title">Escríbenos</div>
+<h2 class="section-title">Contacto</h2>
 
-<!-- TEXT EMAIL -->
-<p><b>Email:</b> TU_EMAIL_AQUI</p>
-
-<!-- TEXT WHATSAPP -->
-<p><b>WhatsApp:</b> +51 TU_NUMERO</p>
+<p>Email: hola@extremooeste.pe</p>
 
 </section>
 
-<!-- WHATSAPP FLOAT -->
-<a class="whatsapp" href="https://wa.me/51987654321">
+<!-- WHATSAPP -->
+<a id="whatsapp" class="whatsapp" target="_blank">
 WhatsApp
 </a>
+
+<!-- SCRIPT -->
+<script>
+
+/* ================= CONFIG ================= */
+const WHATSAPP_NUMBER = "51987654321";
+
+const EXPERIENCES = {
+modal1:{
+title:"Lima Precolombina",
+content:"Huacas milenarias y arqueología urbana.",
+price:"$65 por persona"
+},
+modal2:{
+title:"Mercado Central",
+content:"Gastronomía local.",
+price:"$55 por persona"
+},
+modal3:{
+title:"Barranco Nocturno",
+content:"Arte urbano y vida nocturna.",
+price:"$45 por persona"
+}
+};
+
+/* ================= MODAL ================= */
+function openModal(id){
+document.getElementById("modalTitle").innerText = EXPERIENCES[id].title;
+document.getElementById("modalContent").innerText = EXPERIENCES[id].content;
+document.getElementById("modalPrice").innerText = EXPERIENCES[id].price;
+
+document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+window.onclick = function(e){
+if(e.target.id === "modal"){
+closeModal();
+}
+};
+
+/* ================= WHATSAPP ================= */
+document.getElementById("whatsapp").href =
+"https://wa.me/" + WHATSAPP_NUMBER;
+
+</script>
 
 </body>
 </html>
