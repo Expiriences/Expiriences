@@ -10,13 +10,18 @@
 
 <style>
 
-/* ================= RESET ================= */
+/* ================= BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Inter;background:#0b0b0b;color:#fff;overflow-x:hidden}
 img{width:100%;display:block}
 
 /* ================= NAV ================= */
-nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);z-index:1000}
+nav{
+position:fixed;top:0;width:100%;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
 .nav{display:flex;justify-content:space-between;padding:20px 40px}
 .logo{font-family:Oswald;font-size:28px}
 
@@ -47,11 +52,11 @@ position:relative;
 .track{
 display:flex;
 gap:20px;
-overflow:hidden; /* IMPORTANTE: sin drag */
+overflow:hidden;
 scroll-behavior:smooth;
 }
 
-/* ================= CARD EXPERIENCIAS ================= */
+/* ================= CARDS ================= */
 .card{
 min-width:300px;
 background:#141414;
@@ -63,68 +68,66 @@ transition:.3s;
 .card img{height:200px;object-fit:cover}
 .card-content{padding:15px}
 
-/* ================= HISTORIAS ================= */
+/* ================= STORIES ================= */
 .story{
 min-width:80%;
 background:#111;
 border:1px solid rgba(255,255,255,.1);
 }
-.story img{height:250px;object-fit:cover}
+.story-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+.story-content{padding:20px;line-height:1.8}
 
-/* ================= FLECHAS ================= */
+/* ================= ARROWS ================= */
 .arrow{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-background:#000;
-border:1px solid rgba(255,255,255,.2);
-color:#fff;
 width:55px;
 height:55px;
 border-radius:50%;
+border:1px solid rgba(255,255,255,.2);
+background:#000;
+color:#fff;
 cursor:pointer;
 z-index:10;
 transition:.3s;
 }
-.arrow:hover{
-background:#d77c4a;
-transform:translateY(-50%) scale(1.1);
-}
+.arrow:hover{background:#d77c4a}
 
 .left{left:-10px}
 .right{right:-10px}
 
 /* ================= MODAL ================= */
 .modal{
-position:fixed;
-inset:0;
+position:fixed;inset:0;
+background:rgba(0,0,0,.85);
 display:none;
 justify-content:center;
 align-items:center;
-background:rgba(0,0,0,.85);
 z-index:9999;
 padding:20px;
 }
 .modal.active{display:flex}
 
-.modal-box{
+.box{
 background:#111;
 padding:30px;
 max-width:600px;
 width:100%;
 position:relative;
 }
-
 .close{
 position:absolute;
-top:10px;
-right:15px;
+top:10px;right:15px;
 cursor:pointer;
 color:#d77c4a;
 font-size:22px;
 }
 
-/* ================= CONTACTO ================= */
+/* ================= CONTACT ================= */
 .contact{
 background:
 linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),
@@ -138,7 +141,6 @@ max-width:600px;
 background:rgba(0,0,0,.6);
 padding:20px;
 }
-
 input,textarea{
 width:100%;
 padding:12px;
@@ -162,9 +164,9 @@ color:black;
 
 @media(max-width:768px){
 .hero h1{font-size:3rem}
-.card{min-width:80%}
+.card{min-width:85%}
 .story{min-width:95%}
-.nav{padding:15px}
+.nav{padding:15px 20px}
 }
 
 </style>
@@ -176,7 +178,8 @@ color:black;
 <script>
 const CONFIG = {
 whatsapp:"51999156493",
-message:"Hi, How can I help you?"
+message:"Hi, How can I help you?",
+email:"LimaExpiriences@gmail.com"
 };
 </script>
 
@@ -191,7 +194,10 @@ message:"Hi, How can I help you?"
 <section class="hero">
 <div>
 <h1>Descubre Lima</h1>
-<p>Turismo cultural alternativo con experiencias reales en la ciudad.</p>
+<p>
+Turismo cultural alternativo enfocado en experiencias reales,
+historia viva y recorridos urbanos auténticos.
+</p>
 </div>
 </section>
 
@@ -200,19 +206,13 @@ message:"Hi, How can I help you?"
 <h2 class="title">Experiencias</h2>
 
 <div class="slider">
-
-<button class="arrow left" onmouseover="startScroll('exp',-3)" onmouseout="stopScroll()">
-<i class="fa fa-chevron-left"></i>
-</button>
-
-<button class="arrow right" onmouseover="startScroll('exp',3)" onmouseout="stopScroll()">
-<i class="fa fa-chevron-right"></i>
-</button>
+<button class="arrow left" onclick="scroll('exp',-320)">‹</button>
+<button class="arrow right" onclick="scroll('exp',320)">›</button>
 
 <div class="track" id="exp">
 
 <!-- 8 EXPERIENCIAS -->
-<div class="card" data-t="Lima Precolombina" data-d="Huacas milenarias y arqueología urbana." data-p="$65">
+<div class="card" data-t="Lima Precolombina" data-d="Huacas y arqueología urbana." data-p="$65">
 <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849">
 <div class="card-content"><h3>Lima Precolombina</h3></div>
 </div>
@@ -224,27 +224,27 @@ message:"Hi, How can I help you?"
 
 <div class="card" data-t="Barranco Nocturno" data-d="Arte urbano y vida nocturna." data-p="$45">
 <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
-<div class="card-content"><h3>Barranco Nocturno</h3></div>
+<div class="card-content"><h3>Barranco</h3></div>
 </div>
 
 <div class="card" data-t="Cocina Limeña" data-d="Sabores tradicionales." data-p="$70">
 <img src="https://images.unsplash.com/photo-1547592180-85f173990554">
-<div class="card-content"><h3>Cocina Limeña</h3></div>
+<div class="card-content"><h3>Cocina</h3></div>
 </div>
 
 <div class="card" data-t="Lomas de Lima" data-d="Naturaleza costera." data-p="$50">
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<div class="card-content"><h3>Lomas de Lima</h3></div>
+<div class="card-content"><h3>Lomas</h3></div>
 </div>
 
 <div class="card" data-t="Callao Cultural" data-d="Arte urbano portuario." data-p="$60">
 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-<div class="card-content"><h3>Callao Cultural</h3></div>
+<div class="card-content"><h3>Callao</h3></div>
 </div>
 
 <div class="card" data-t="Ruta Fotográfica" data-d="Fotografía urbana." data-p="$55">
 <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828">
-<div class="card-content"><h3>Ruta Fotográfica</h3></div>
+<div class="card-content"><h3>Foto</h3></div>
 </div>
 
 <div class="card" data-t="Gamarra Experience" data-d="Moda popular." data-p="$40">
@@ -261,34 +261,33 @@ message:"Hi, How can I help you?"
 <h2 class="title">Historias</h2>
 
 <div class="slider">
-
-<button class="arrow left" onmouseover="startScroll('hist',-3)" onmouseout="stopScroll()">
-<i class="fa fa-chevron-left"></i>
-</button>
-
-<button class="arrow right" onmouseover="startScroll('hist',3)" onmouseout="stopScroll()">
-<i class="fa fa-chevron-right"></i>
-</button>
+<button class="arrow left" onclick="scroll('hist',-320)">‹</button>
+<button class="arrow right" onclick="scroll('hist',320)">›</button>
 
 <div class="track" id="hist">
 
-<!-- 3 HISTORIAS -->
 <div class="story">
+<div class="story-grid">
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-<div style="padding:15px">Historia 1 (800 palabras)</div>
+</div>
+<div class="story-content">Historia 1 (800 palabras)</div>
 </div>
 
 <div class="story">
+<div class="story-grid">
 <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828">
 <img src="https://images.unsplash.com/photo-1547592180-85f173990554">
-<div style="padding:15px">Historia 2</div>
+</div>
+<div class="story-content">Historia 2</div>
 </div>
 
 <div class="story">
+<div class="story-grid">
 <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
 <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
-<div style="padding:15px">Historia 3</div>
+</div>
+<div class="story-content">Historia 3</div>
 </div>
 
 </div>
@@ -312,11 +311,11 @@ message:"Hi, How can I help you?"
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-<div class="modal-box">
+<div class="box">
 <span class="close" onclick="closeModal()">×</span>
-<h2 id="mt"></h2>
-<p id="md"></p>
-<p id="mp"></p>
+<h2 id="t"></h2>
+<p id="d"></p>
+<p id="p"></p>
 </div>
 </div>
 
@@ -331,25 +330,19 @@ const modal=document.getElementById("modal");
 
 document.querySelectorAll(".card").forEach(c=>{
 c.onclick=()=>{
-document.getElementById("mt").innerText=c.dataset.t;
-document.getElementById("md").innerText=c.dataset.d;
-document.getElementById("mp").innerText=c.dataset.p;
+t.innerText=c.dataset.t;
+d.innerText=c.dataset.d;
+p.innerText=c.dataset.p;
 modal.classList.add("active");
 }
 });
 
 function closeModal(){modal.classList.remove("active");}
+window.onclick=e=>{if(e.target===modal)closeModal();}
 
-/* SCROLL CON FLECHAS */
-let interval;
-
-function startScroll(id,speed){
-const el=document.getElementById(id);
-interval=setInterval(()=>{el.scrollLeft+=speed},10);
-}
-
-function stopScroll(){
-clearInterval(interval);
+/* SCROLL */
+function scroll(id,val){
+document.getElementById(id).scrollBy({left:val,behavior:"smooth"});
 }
 
 </script>
