@@ -9,6 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
   <style>
 
     *{
@@ -45,8 +50,10 @@
 
     .section-tag{
       color:#C2A878;
-      letter-spacing:2px;
-      font-size:.85rem;
+      letter-spacing:4px;
+      font-size:1.4rem;
+      font-weight:700;
+      text-transform:uppercase;
     }
 
     /* NAVBAR */
@@ -92,6 +99,8 @@
       text-decoration:none;
       color:#EDE8E1;
       transition:.3s;
+      font-size:1.2rem;
+      font-weight:500;
     }
 
     .nav-links a:hover{
@@ -293,9 +302,20 @@
 
     /* CONTACT */
 
+
     .contact{
       text-align:center;
-    }
+
+      background:
+       linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+       url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1974&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+
+      position:relative;
+     }
 
     .contact h2{
       font-size:4rem;
@@ -310,10 +330,50 @@
       flex-wrap:wrap;
     }
 
-    .contact-links a{
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:40px;
+      flex-wrap:wrap;
+   }
+
+    .contact-card{
+      display:flex;
+      align-items:center;
+      gap:12px;
+
+      padding:18px 28px;
+
+      background:#1E1F22;
+      border:1px solid rgba(255,255,255,.08);
+
+      border-radius:18px;
+
       color:#EDE8E1;
       text-decoration:none;
-    }
+
+      font-size:1rem;
+      font-weight:600;
+      letter-spacing:.5px;
+
+      transition:.35s;
+
+      min-width:180px;
+      justify-content:center;
+  }
+
+   .contact-card i{
+     font-size:1.4rem;
+     color:#C2A878;
+  }
+
+   .contact-card:hover{
+     transform:translateY(-6px);
+     border-color:#C2A878;
+     background:#25262a;
+     box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
 
     /* FOOTER */
 
@@ -457,6 +517,33 @@
       }
     }
 
+   /* WHATSAPP FLOAT BUTTON */
+
+/* WHATSAPP FLOAT BUTTON */
+
+.whatsapp-float{
+  position:fixed;
+  width:65px;
+  height:65px;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  font-size:34px;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  z-index:9999;
+  transition:.3s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+}
+	
   </style>
 </head>
 <body>
@@ -538,7 +625,7 @@
 
       <article class="experience-card large-card">
 
-        <img src="https://images.unsplash.com/photo-1544989164-31ad8bf4dfe8?q=80&w=1974&auto=format&fit=crop" alt="Tour">
+        <img src="https://consultasenlinea.mincetur.gob.pe/fichaInventario//foto.aspx?cod=344909">
 
         <div class="card-content">
 
@@ -626,6 +713,86 @@
 
       </article>
 
+     <article class="experience-card">
+
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1974&auto=format&fit=crop" alt="Barranco Tour">
+
+  <div class="card-content">
+
+    <span class="card-category">URBAN CULTURE</span>
+
+    <h3>Barranco Art Route</h3>
+
+    <p>
+      Explore Lima’s artistic district through street art, local culture and hidden spaces.
+    </p>
+
+    <div class="card-footer">
+
+      <span class="card-price">From $50</span>
+
+      <button
+        class="card-button open-modal"
+
+        data-title="Barranco Art Route"
+
+        data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1974&auto=format&fit=crop"
+
+        data-description="Discover Barranco through murals, urban art, music, poetry and alternative cultural spaces."
+
+        data-duration="3 Hours"
+
+        data-price="$50"
+      >
+        Explore →
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+<article class="experience-card">
+
+  <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1974&auto=format&fit=crop" alt="Coastal Tour">
+
+  <div class="card-content">
+
+    <span class="card-category">COASTAL EXPERIENCE</span>
+
+    <h3>Pacific Sunset Route</h3>
+
+    <p>
+      Discover Lima’s coastline through cliffs, ocean views and hidden local spots.
+    </p>
+
+    <div class="card-footer">
+
+      <span class="card-price">From $65</span>
+
+      <button
+        class="card-button open-modal"
+
+        data-title="Pacific Sunset Route"
+
+        data-image="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1974&auto=format&fit=crop"
+
+        data-description="Experience Lima’s Pacific coast with sunset viewpoints, local culture and alternative routes away from traditional tourism."
+
+        data-duration="4 Hours"
+
+        data-price="$65"
+      >
+        Explore →
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
     </div>
 
   </section>
@@ -640,7 +807,7 @@
     <div class="gallery-grid">
       <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=1974&auto=format&fit=crop">
       <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1974&auto=format&fit=crop">
-      <img src="https://images.unsplash.com/photo-1544989164-31ad8bf4dfe8?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://static.wixstatic.com/media/4c919a_ae795de7480a4ebe8b61e108958aea88~mv2.jpeg/v1/fill/w_925,h_610,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c919a_ae795de7480a4ebe8b61e108958aea88~mv2.jpeg">
       <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1974&auto=format&fit=crop">
     </div>
 
@@ -656,11 +823,35 @@
       Contact us to book private experiences and discover Lima from a different perspective.
     </p>
 
-    <div class="contact-links">
-      <a href="#">WhatsApp</a>
-      <a href="#">Instagram</a>
-      <a href="#">Email</a>
-    </div>
+<div class="contact-links">
+
+  <a
+    href="https://wa.me/51999156493"
+    target="_blank"
+    class="contact-card"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>
+
+  <a
+    href="https://instagram.com/extremooe"
+    target="_blank"
+    class="contact-card"
+  >
+    <i class="fa-brands fa-instagram"></i>
+    <span>Instagram</span>
+  </a>
+
+  <a
+    href="mailto:LimaExpiriences@gmail.com"
+    class="contact-card"
+  >
+    <i class="fa-solid fa-envelope"></i>
+    <span>Email</span>
+  </a>
+
+</div>
 
   </section>
 
@@ -753,6 +944,16 @@
     });
 
   </script>
+   <!-- WHATSAPP FLOAT BUTTON -->
+
+  <a
+    href="https://wa.me/51999156493?text=Hola,%20quiero%20información%20sobre%20los%20tours"
+    class="whatsapp-float"
+    target="_blank"
+ >
+    <i class="fa-brands fa-whatsapp"></i>
+ </a>
 
 </body>
 </html>
+
