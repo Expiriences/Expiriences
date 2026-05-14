@@ -21,6 +21,10 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:'Poppins',sans-serif;
   background:#0f0f0f;
@@ -36,8 +40,8 @@ body{
   height:70vh;
   background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600') center/cover;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   position:relative;
 }
 
@@ -62,10 +66,11 @@ body{
 
 .hero p{
   font-size:1.2rem;
+  opacity:.9;
 }
 
 /* =====================================================
-   SECTIONS
+   SECTION
 ===================================================== */
 
 .section{
@@ -73,12 +78,12 @@ body{
 }
 
 .section-title{
-  font-size:2.4rem;
-  margin-bottom:30px;
+  font-size:2.2rem;
+  margin-bottom:35px;
 }
 
 /* =====================================================
-   SCROLL
+   HORIZONTAL SCROLL
 ===================================================== */
 
 .scroll-wrapper{
@@ -87,10 +92,10 @@ body{
 
 .scroll-container{
   display:flex;
-  gap:24px;
+  gap:20px;
   overflow-x:auto;
   scroll-behavior:smooth;
-  padding:10px 60px;
+  padding:10px 50px;
   scrollbar-width:none;
 }
 
@@ -106,7 +111,7 @@ body{
   min-width:320px;
   max-width:320px;
   height:420px;
-  border-radius:20px;
+  border-radius:22px;
   overflow:hidden;
   position:relative;
   flex-shrink:0;
@@ -136,42 +141,42 @@ body{
 }
 
 .card-overlay h3{
-  font-size:1.5rem;
+  font-size:1.4rem;
   margin-bottom:10px;
 }
 
 .card-overlay p{
   font-size:.95rem;
   line-height:1.6;
+  opacity:.9;
 }
 
 /* =====================================================
-   STORY CARDS (GRANDES)
+   STORY SECTION
 ===================================================== */
 
+.story-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:30px;
+}
+
 .story-card{
-  min-width:900px;
-  max-width:900px;
-  min-height:650px;
   background:#181818;
   border-radius:24px;
   overflow:hidden;
-  flex-shrink:0;
-  display:flex;
-  flex-direction:column;
   transition:.35s;
+  cursor:pointer;
 }
 
 .story-card:hover{
   transform:translateY(-6px);
 }
 
-/* IMAGENES */
-
 .story-images{
   display:grid;
   grid-template-columns:1fr 1fr;
-  height:320px;
+  height:260px;
 }
 
 .story-images img{
@@ -180,21 +185,18 @@ body{
   object-fit:cover;
 }
 
-/* TEXTO */
-
 .story-content{
-  padding:35px;
+  padding:30px;
 }
 
 .story-content h3{
-  font-size:2rem;
-  margin-bottom:20px;
+  font-size:1.8rem;
+  margin-bottom:15px;
 }
 
 .story-content p{
-  font-size:1rem;
-  line-height:2;
-  color:#d7d7d7;
+  line-height:1.8;
+  opacity:.88;
 }
 
 /* =====================================================
@@ -232,12 +234,90 @@ body{
 }
 
 /* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+  padding:30px;
+}
+
+.modal-content{
+  width:100%;
+  max-width:950px;
+  max-height:90vh;
+  overflow-y:auto;
+  background:#181818;
+  border-radius:24px;
+  animation:fadeIn .35s ease;
+}
+
+.modal-images{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  height:360px;
+}
+
+.modal-images img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.modal-body{
+  padding:40px;
+}
+
+.modal-body h2{
+  font-size:2.3rem;
+  margin-bottom:25px;
+}
+
+.modal-body p{
+  line-height:2;
+  font-size:1rem;
+  color:#d7d7d7;
+  white-space:pre-line;
+}
+
+.close{
+  position:fixed;
+  top:20px;
+  right:30px;
+  font-size:42px;
+  color:white;
+  cursor:pointer;
+  z-index:10000;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
-  text-align:center;
   padding:40px 20px;
+  text-align:center;
   background:#090909;
 }
 
@@ -249,32 +329,35 @@ footer p{
    RESPONSIVE
 ===================================================== */
 
-@media(max-width:980px){
+@media(max-width:900px){
 
   .hero h1{
-    font-size:2.6rem;
+    font-size:2.7rem;
   }
 
-  .story-card{
-    min-width:92vw;
-    max-width:92vw;
+  .card{
+    min-width:260px;
+    max-width:260px;
+    height:360px;
   }
 
-  .story-images{
+  .story-images,
+  .modal-images{
     grid-template-columns:1fr;
     height:auto;
   }
 
-  .story-images img{
-    height:220px;
+  .story-images img,
+  .modal-images img{
+    height:240px;
   }
 
-  .story-content{
+  .modal-body{
     padding:25px;
   }
 
-  .story-content h3{
-    font-size:1.6rem;
+  .modal-body h2{
+    font-size:1.8rem;
   }
 
 }
@@ -292,7 +375,7 @@ footer p{
 
   <div class="hero-content">
     <h1>EXTREMO OESTE</h1>
-    <p>Experiencias auténticas frente al océano</p>
+    <p>Experiencias únicas en la costa del Perú</p>
   </div>
 
 </section>
@@ -315,69 +398,75 @@ footer p{
 
     <div class="scroll-container" id="experiencias">
 
-      <!-- 8 CARDS -->
-
+      <!-- CARD 1 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
         <div class="card-overlay">
           <h3>Surf</h3>
-          <p>Olas perfectas y aventura frente al mar.</p>
+          <p>Olas perfectas y aventura.</p>
         </div>
       </div>
 
+      <!-- CARD 2 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
         <div class="card-overlay">
           <h3>Atardecer</h3>
-          <p>Momentos únicos en la costa peruana.</p>
+          <p>Paisajes inolvidables.</p>
         </div>
       </div>
 
+      <!-- CARD 3 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
         <div class="card-overlay">
           <h3>Camping</h3>
-          <p>Dormir frente al océano.</p>
+          <p>Escapa de la rutina.</p>
         </div>
       </div>
 
+      <!-- CARD 4 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1400">
         <div class="card-overlay">
           <h3>Kayak</h3>
-          <p>Explora playas escondidas.</p>
+          <p>Aventura marina.</p>
         </div>
       </div>
 
+      <!-- CARD 5 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
         <div class="card-overlay">
           <h3>Naturaleza</h3>
-          <p>Conecta con paisajes increíbles.</p>
+          <p>Explora nuevos paisajes.</p>
         </div>
       </div>
 
+      <!-- CARD 6 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1400">
         <div class="card-overlay">
           <h3>Relax</h3>
-          <p>Desconéctate del ruido.</p>
+          <p>Momentos de calma.</p>
         </div>
       </div>
 
+      <!-- CARD 7 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400">
         <div class="card-overlay">
           <h3>Exploración</h3>
-          <p>Nuevas aventuras junto al mar.</p>
+          <p>Nuevas aventuras.</p>
         </div>
       </div>
 
+      <!-- CARD 8 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=1400">
         <div class="card-overlay">
           <h3>Vida Marina</h3>
-          <p>Conecta con el océano.</p>
+          <p>Experiencias auténticas.</p>
         </div>
       </div>
 
@@ -394,96 +483,143 @@ footer p{
 </section>
 
 <!-- =====================================================
-     HISTORIAS GRANDES
+     HISTORIAS
 ===================================================== -->
 
 <section class="section">
 
   <h2 class="section-title">Historias</h2>
 
-  <div class="scroll-wrapper">
+  <div class="story-grid">
 
-    <button class="arrow arrow-left"
-      onmouseenter="startScroll('historias', -1)"
-      onmouseleave="stopScroll()">
-      ❮
-    </button>
+    <!-- STORY 1 -->
 
-    <div class="scroll-container" id="historias">
+    <div class="story-card"
+      onclick="openStoryModal(
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400',
+      'https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400',
+      'Lobitos y el océano',
+      `Lobitos tiene algo difícil de explicar.
 
-      <!-- STORY 1 -->
+No es solamente una playa o un destino turístico.
+Es un lugar donde el tiempo parece avanzar más lento.
 
-      <div class="story-card">
+Las mañanas empiezan con el sonido constante de las olas,
+pescadores regresando a la orilla y surfistas entrando al agua antes del amanecer.
 
-        <div class="story-images">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
-          <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
-        </div>
+La experiencia cambia completamente dependiendo de cuánto tiempo te quedes.
+Muchos visitantes llegan por unos días y terminan quedándose semanas.
 
-        <div class="story-content">
+Lo que hace especial a este lugar no es solo el paisaje.
+También es la sensación de desconexión.
 
-          <h3>Historia de Lobitos</h3>
+Aquí no existen grandes avenidas, tráfico ni ruido constante.
+Solo mar, viento y espacios abiertos.
 
-          <p>
-            Lobitos es uno de esos lugares que parecen detenidos en el tiempo.
-            Entre el sonido constante del océano y los antiguos caminos de arena,
-            la experiencia se vuelve completamente distinta a cualquier destino turístico convencional.
+Durante las noches el cielo se llena de estrellas,
+las fogatas aparecen frente al océano
+y las conversaciones duran horas.
 
-            Aquí las mañanas empiezan lentamente, con surfistas entrando al mar antes del amanecer,
-            pescadores regresando a la orilla y pequeños grupos compartiendo café mientras el sol ilumina la costa.
+Cada historia en Lobitos termina siendo distinta.
+Algunos vienen buscando surf.
+Otros tranquilidad.
+Otros simplemente necesitan desconectarse del ritmo acelerado de la ciudad.
 
-            La sensación de desconexión es total.
-            No existen grandes edificios, tráfico ni ruido constante.
-            Solo el viento, el mar y una comunidad pequeña que mantiene viva la esencia del lugar.
+Y quizás eso es precisamente lo más valioso del lugar:
+permitir volver a conectar con experiencias simples,
+reales y difíciles de encontrar en otros destinos.`
+      )">
 
-            Muchos viajeros llegan por unos días y terminan quedándose semanas.
-            Otros vuelven todos los años buscando exactamente lo mismo:
-            tranquilidad, naturaleza y experiencias reales.
-          </p>
-
-        </div>
-
+      <div class="story-images">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
+        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
       </div>
 
-      <!-- STORY 2 -->
-
-      <div class="story-card">
-
-        <div class="story-images">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
-        </div>
-
-        <div class="story-content">
-
-          <h3>Camping frente al mar</h3>
-
-          <p>
-            Dormir frente al océano transforma completamente la experiencia de viaje.
-            Las noches se vuelven silenciosas, iluminadas únicamente por las estrellas y el reflejo de la luna sobre el agua.
-
-            Compartir historias alrededor de una fogata, cocinar al aire libre y despertar viendo el amanecer sobre el mar
-            crea recuerdos difíciles de olvidar.
-
-            Muchas personas buscan este tipo de experiencias porque representan algo cada vez más escaso:
-            tiempo real, desconexión y contacto directo con la naturaleza.
-          </p>
-
-        </div>
-
+      <div class="story-content">
+        <h3>Lobitos y el océano</h3>
+        <p>
+          Una historia sobre desconexión, surf y vida frente al mar.
+        </p>
       </div>
 
     </div>
 
-    <button class="arrow arrow-right"
-      onmouseenter="startScroll('historias', 1)"
-      onmouseleave="stopScroll()">
-      ❯
-    </button>
+    <!-- STORY 2 -->
+
+    <div class="story-card"
+      onclick="openStoryModal(
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400',
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400',
+      'Camping frente al mar',
+      `Dormir frente al océano transforma completamente la experiencia de viaje.
+
+Las noches se vuelven silenciosas,
+iluminadas únicamente por las estrellas y el sonido del mar.
+
+Compartir historias alrededor de una fogata,
+cocinar al aire libre
+y despertar viendo el amanecer sobre el agua
+crea recuerdos difíciles de olvidar.
+
+Muchas personas llegan buscando aventura,
+pero terminan encontrando tranquilidad.
+
+El camping permite desconectarse de las pantallas,
+del tráfico y del ritmo acelerado de la rutina.
+
+Aquí el tiempo funciona distinto.
+Las conversaciones duran más,
+los amaneceres se disfrutan más
+y las experiencias se sienten más reales.`
+      )">
+
+      <div class="story-images">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
+      </div>
+
+      <div class="story-content">
+        <h3>Camping frente al mar</h3>
+        <p>
+          Fogatas, amaneceres y experiencias auténticas.
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
 </section>
+
+<!-- =====================================================
+     STORY MODAL
+===================================================== -->
+
+<div class="modal" id="storyModal">
+
+  <span class="close" onclick="closeStoryModal()">×</span>
+
+  <div class="modal-content">
+
+    <div class="modal-images">
+
+      <img id="modalImg1">
+
+      <img id="modalImg2">
+
+    </div>
+
+    <div class="modal-body">
+
+      <h2 id="modalTitle"></h2>
+
+      <p id="modalText"></p>
+
+    </div>
+
+  </div>
+
+</div>
 
 <!-- =====================================================
      FOOTER
@@ -500,7 +636,7 @@ footer p{
 <script>
 
 /* =====================================================
-   AUTO HORIZONTAL SCROLL
+   HORIZONTAL SCROLL EXPERIENCIAS
 ===================================================== */
 
 let scrollInterval;
@@ -524,7 +660,43 @@ function stopScroll(){
 }
 
 /* =====================================================
-   DRAG SCROLL
+   STORY MODAL
+===================================================== */
+
+function openStoryModal(img1, img2, title, text){
+
+  document.getElementById('storyModal').style.display = 'flex';
+
+  document.getElementById('modalImg1').src = img1;
+
+  document.getElementById('modalImg2').src = img2;
+
+  document.getElementById('modalTitle').innerText = title;
+
+  document.getElementById('modalText').innerText = text;
+}
+
+function closeStoryModal(){
+
+  document.getElementById('storyModal').style.display = 'none';
+}
+
+/* =====================================================
+   CLOSE MODAL OUTSIDE
+===================================================== */
+
+window.onclick = function(e){
+
+  const modal = document.getElementById('storyModal');
+
+  if(e.target === modal){
+
+    closeStoryModal();
+  }
+}
+
+/* =====================================================
+   DRAG SCROLL EXPERIENCIAS
 ===================================================== */
 
 const sliders = document.querySelectorAll('.scroll-container');
