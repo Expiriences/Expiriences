@@ -1,747 +1,731 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>EXTREMO OESTE</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Poppins',sans-serif;
-  background:#0f0f0f;
-  color:white;
-  overflow-x:hidden;
-}
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-  height:70vh;
-  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.55);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding:20px;
-}
-
-.hero h1{
-  font-size:4rem;
-  margin-bottom:15px;
-}
-
-.hero p{
-  font-size:1.2rem;
-  opacity:.9;
-}
-
-/* =====================================================
-   SECTION
-===================================================== */
-
-.section{
-  padding:70px 5%;
-}
-
-.section-title{
-  font-size:2.2rem;
-  margin-bottom:35px;
-}
-
-/* =====================================================
-   HORIZONTAL SCROLL
-===================================================== */
-
-.scroll-wrapper{
-  position:relative;
-}
-
-.scroll-container{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding:10px 50px;
-  scrollbar-width:none;
-}
-
-.scroll-container::-webkit-scrollbar{
-  display:none;
-}
-
-/* =====================================================
-   EXPERIENCE CARDS
-===================================================== */
-
-.card{
-  min-width:320px;
-  max-width:320px;
-  height:420px;
-  border-radius:22px;
-  overflow:hidden;
-  position:relative;
-  flex-shrink:0;
-  cursor:pointer;
-  transition:.35s;
-  background:#222;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-}
-
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.card-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.95), transparent);
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:25px;
-}
-
-.card-overlay h3{
-  font-size:1.4rem;
-  margin-bottom:10px;
-}
-
-.card-overlay p{
-  font-size:.95rem;
-  line-height:1.6;
-  opacity:.9;
-}
-
-/* =====================================================
-   STORY SECTION
-===================================================== */
-
-.story-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-  gap:30px;
-}
-
-.story-card{
-  background:#181818;
-  border-radius:24px;
-  overflow:hidden;
-  transition:.35s;
-  cursor:pointer;
-}
-
-.story-card:hover{
-  transform:translateY(-6px);
-}
-
-.story-images{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  height:260px;
-}
-
-.story-images img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.story-content{
-  padding:30px;
-}
-
-.story-content h3{
-  font-size:1.8rem;
-  margin-bottom:15px;
-}
-
-.story-content p{
-  line-height:1.8;
-  opacity:.88;
-}
-
-/* =====================================================
-   ARROWS
-===================================================== */
-
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:58px;
-  height:58px;
-  border:none;
-  border-radius:50%;
-  background:rgba(0,0,0,.7);
-  color:white;
-  font-size:28px;
-  cursor:pointer;
-  z-index:10;
-  transition:.3s;
-  backdrop-filter:blur(5px);
-}
-
-.arrow:hover{
-  background:#ff7b00;
-  transform:translateY(-50%) scale(1.08);
-}
-
-.arrow-left{
-  left:0;
-}
-
-.arrow-right{
-  right:0;
-}
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.88);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
-  padding:30px;
-}
-
-.modal-content{
-  width:100%;
-  max-width:950px;
-  max-height:90vh;
-  overflow-y:auto;
-  background:#181818;
-  border-radius:24px;
-  animation:fadeIn .35s ease;
-}
-
-.modal-images{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  height:360px;
-}
-
-.modal-images img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.modal-body{
-  padding:40px;
-}
-
-.modal-body h2{
-  font-size:2.3rem;
-  margin-bottom:25px;
-}
-
-.modal-body p{
-  line-height:2;
-  font-size:1rem;
-  color:#d7d7d7;
-  white-space:pre-line;
-}
-
-.close{
-  position:fixed;
-  top:20px;
-  right:30px;
-  font-size:42px;
-  color:white;
-  cursor:pointer;
-  z-index:10000;
-}
-
-/* =====================================================
-   ANIMATION
-===================================================== */
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:scale(.96);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-  padding:40px 20px;
-  text-align:center;
-  background:#090909;
-}
-
-footer p{
-  opacity:.7;
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:900px){
-
-  .hero h1{
-    font-size:2.7rem;
-  }
-
-  .card{
-    min-width:260px;
-    max-width:260px;
-    height:360px;
-  }
-
-  .story-images,
-  .modal-images{
-    grid-template-columns:1fr;
-    height:auto;
-  }
-
-  .story-images img,
-  .modal-images img{
-    height:240px;
-  }
-
-  .modal-body{
-    padding:25px;
-  }
-
-  .modal-body h2{
-    font-size:1.8rem;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Extremo Oeste | Turismo Cultural en Lima</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0b0b0b;
+      color:#f5f1e8;
+      font-family:'Inter', sans-serif;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(0,0,0,.45);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-container{
+      max-width:1400px;
+      margin:auto;
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-family:'Oswald', sans-serif;
+      font-size:2rem;
+      line-height:1;
+      text-transform:uppercase;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    .menu{
+      display:flex;
+      gap:40px;
+    }
+
+    .menu a{
+      text-transform:uppercase;
+      font-size:.9rem;
+      letter-spacing:2px;
+      transition:.3s;
+    }
+
+    .menu a:hover{
+      color:#d67642;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.6)),
+      url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      padding:0 7%;
+    }
+
+    .hero-content{
+      max-width:750px;
+    }
+
+    .hero-sub{
+      color:#d67642;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      margin-bottom:20px;
+      font-size:.9rem;
+    }
+
+    .hero h1{
+      font-family:'Oswald', sans-serif;
+      font-size:7rem;
+      line-height:.95;
+      text-transform:uppercase;
+      margin-bottom:30px;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      line-height:1.8;
+      color:rgba(255,255,255,.8);
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:18px 40px;
+      border:1px solid #d67642;
+      color:white;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      background:#d67642;
+    }
+
+    /* FEATURES */
+
+    .features{
+      background:#050505;
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .feature{
+      padding:50px 40px;
+      border-right:1px solid rgba(255,255,255,.08);
+    }
+
+    .feature:last-child{
+      border-right:none;
+    }
+
+    .feature h3{
+      margin-bottom:15px;
+      color:#d67642;
+      font-family:'Oswald', sans-serif;
+      text-transform:uppercase;
+      font-size:1.6rem;
+    }
+
+    .feature p{
+      color:rgba(255,255,255,.7);
+      line-height:1.7;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 7%;
+    }
+
+    .section-title{
+      margin-bottom:70px;
+    }
+
+    .section-sub{
+      color:#d67642;
+      text-transform:uppercase;
+      letter-spacing:4px;
+      margin-bottom:15px;
+    }
+
+    .section-title h2{
+      font-family:'Oswald', sans-serif;
+      font-size:4rem;
+      text-transform:uppercase;
+    }
+
+    /* TOURS */
+
+    .tours{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .tour-card{
+      background:#121212;
+      border:1px solid rgba(255,255,255,.08);
+      overflow:hidden;
+      transition:.4s;
+    }
+
+    .tour-card:hover{
+      transform:translateY(-8px);
+      border-color:#d67642;
+    }
+
+    .tour-img{
+      height:380px;
+      overflow:hidden;
+    }
+
+    .tour-img img{
+      height:100%;
+      object-fit:cover;
+      transition:.5s;
+    }
+
+    .tour-card:hover img{
+      transform:scale(1.06);
+    }
+
+    .tour-content{
+      padding:30px;
+    }
+
+    .tour-content h3{
+      font-family:'Oswald', sans-serif;
+      font-size:2rem;
+      text-transform:uppercase;
+      margin-bottom:15px;
+    }
+
+    .tour-content p{
+      color:rgba(255,255,255,.7);
+      line-height:1.7;
+      margin-bottom:25px;
+    }
+
+    .price{
+      color:#d9a066;
+      font-weight:600;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    /* STORIES */
+
+    .stories{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .story{
+      background:#121212;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .story img{
+      height:260px;
+      object-fit:cover;
+    }
+
+    .story-content{
+      padding:30px;
+    }
+
+    .story-content h3{
+      font-family:'Oswald', sans-serif;
+      font-size:2rem;
+      margin-bottom:15px;
+      text-transform:uppercase;
+    }
+
+    .story-content p{
+      color:rgba(255,255,255,.7);
+      line-height:1.8;
+    }
+
+    /* CONTACT */
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+    }
+
+    .contact-info h3{
+      font-family:'Oswald', sans-serif;
+      font-size:4rem;
+      text-transform:uppercase;
+      margin-bottom:30px;
+    }
+
+    .contact-info p{
+      color:rgba(255,255,255,.75);
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .contact-form{
+      background:#121212;
+      padding:40px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:18px;
+      margin-bottom:20px;
+      background:#1b1b1b;
+      border:1px solid rgba(255,255,255,.08);
+      color:white;
+      font-size:1rem;
+    }
+
+    textarea{
+      min-height:180px;
+      resize:none;
+    }
+
+    button{
+      width:100%;
+      padding:18px;
+      background:#d67642;
+      border:none;
+      color:white;
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    button:hover{
+      background:#eb8650;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 7%;
+      border-top:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      color:rgba(255,255,255,.4);
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp{
+      position:fixed;
+      bottom:25px;
+      right:25px;
+      background:#25D366;
+      color:black;
+      padding:18px 28px;
+      border-radius:100px;
+      font-weight:700;
+      z-index:999;
+      box-shadow:0 10px 25px rgba(0,0,0,.3);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:4.5rem;
+      }
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .feature{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.08);
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .menu{
+        display:none;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+  <!-- NAVBAR -->
 
-<section class="hero">
+  <nav>
 
-  <div class="hero-content">
-    <h1>EXTREMO OESTE</h1>
-    <p>Experiencias únicas en la costa del Perú</p>
-  </div>
+    <div class="nav-container">
 
-</section>
-
-<!-- =====================================================
-     EXPERIENCIAS
-===================================================== -->
-
-<section class="section">
-
-  <h2 class="section-title">Experiencias</h2>
-
-  <div class="scroll-wrapper">
-
-    <button class="arrow arrow-left"
-      onmouseenter="startScroll('experiencias', -1)"
-      onmouseleave="stopScroll()">
-      ❮
-    </button>
-
-    <div class="scroll-container" id="experiencias">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Surf</h3>
-          <p>Olas perfectas y aventura.</p>
-        </div>
+      <div class="logo">
+        Extremo<br>Oeste
       </div>
 
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Atardecer</h3>
-          <p>Paisajes inolvidables.</p>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Camping</h3>
-          <p>Escapa de la rutina.</p>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Kayak</h3>
-          <p>Aventura marina.</p>
-        </div>
-      </div>
-
-      <!-- CARD 5 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Naturaleza</h3>
-          <p>Explora nuevos paisajes.</p>
-        </div>
-      </div>
-
-      <!-- CARD 6 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Relax</h3>
-          <p>Momentos de calma.</p>
-        </div>
-      </div>
-
-      <!-- CARD 7 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Exploración</h3>
-          <p>Nuevas aventuras.</p>
-        </div>
-      </div>
-
-      <!-- CARD 8 -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=1400">
-        <div class="card-overlay">
-          <h3>Vida Marina</h3>
-          <p>Experiencias auténticas.</p>
-        </div>
+      <div class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#experiencias">Experiencias</a>
+        <a href="#historias">Historias</a>
+        <a href="#contacto">Contacto</a>
       </div>
 
     </div>
 
-    <button class="arrow arrow-right"
-      onmouseenter="startScroll('experiencias', 1)"
-      onmouseleave="stopScroll()">
-      ❯
-    </button>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+      <div class="hero-sub">
+        Rutas Alternativas en Lima
+      </div>
+
+      <h1>
+        Descubre<br>
+        La Lima Real
+      </h1>
+
+      <p>
+        Experiencias culturales alternativas más allá del turismo tradicional.
+        Historia viva, cultura urbana y recorridos auténticos.
+      </p>
+
+      <a href="#experiencias" class="btn">
+        Explorar Experiencias
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <div class="features">
+
+    <div class="feature">
+      <h3>Experiencias Reales</h3>
+      <p>
+        Conecta con la vida cotidiana y la cultura viva de Lima.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>Historia Viva</h3>
+      <p>
+        Comprende el pasado para entender el presente.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>Responsables</h3>
+      <p>
+        Turismo ético y consciente con la comunidad.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>Rutas Alternativas</h3>
+      <p>
+        Explora lugares fuera del circuito tradicional.
+      </p>
+    </div>
 
   </div>
 
-</section>
+  <!-- EXPERIENCIAS -->
 
-<!-- =====================================================
-     HISTORIAS
-===================================================== -->
+  <section id="experiencias">
 
-<section class="section">
+    <div class="section-title">
 
-  <h2 class="section-title">Historias</h2>
-
-  <div class="story-grid">
-
-    <!-- STORY 1 -->
-
-    <div class="story-card"
-      onclick="openStoryModal(
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400',
-      'https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400',
-      'Lobitos y el océano',
-      `Lobitos tiene algo difícil de explicar.
-
-No es solamente una playa o un destino turístico.
-Es un lugar donde el tiempo parece avanzar más lento.
-
-Las mañanas empiezan con el sonido constante de las olas,
-pescadores regresando a la orilla y surfistas entrando al agua antes del amanecer.
-
-La experiencia cambia completamente dependiendo de cuánto tiempo te quedes.
-Muchos visitantes llegan por unos días y terminan quedándose semanas.
-
-Lo que hace especial a este lugar no es solo el paisaje.
-También es la sensación de desconexión.
-
-Aquí no existen grandes avenidas, tráfico ni ruido constante.
-Solo mar, viento y espacios abiertos.
-
-Durante las noches el cielo se llena de estrellas,
-las fogatas aparecen frente al océano
-y las conversaciones duran horas.
-
-Cada historia en Lobitos termina siendo distinta.
-Algunos vienen buscando surf.
-Otros tranquilidad.
-Otros simplemente necesitan desconectarse del ritmo acelerado de la ciudad.
-
-Y quizás eso es precisamente lo más valioso del lugar:
-permitir volver a conectar con experiencias simples,
-reales y difíciles de encontrar en otros destinos.`
-      )">
-
-      <div class="story-images">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
-        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
+      <div class="section-sub">
+        Experiencias
       </div>
 
-      <div class="story-content">
-        <h3>Lobitos y el océano</h3>
+      <h2>Tours Guiados</h2>
+
+    </div>
+
+    <div class="tours">
+
+      <!-- TOUR -->
+
+      <div class="tour-card">
+
+        <div class="tour-img">
+          <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=1200&auto=format&fit=crop">
+        </div>
+
+        <div class="tour-content">
+
+          <h3>Lima Precolombina</h3>
+
+          <p>
+            Huacas milenarias y arqueología escondida dentro de Lima.
+          </p>
+
+          <div class="price">
+            Desde $65 por persona
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TOUR -->
+
+      <div class="tour-card">
+
+        <div class="tour-img">
+          <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+        </div>
+
+        <div class="tour-content">
+
+          <h3>Mercado Central</h3>
+
+          <p>
+            Gastronomía, comercio popular y cultura urbana limeña.
+          </p>
+
+          <div class="price">
+            Desde $55 por persona
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TOUR -->
+
+      <div class="tour-card">
+
+        <div class="tour-img">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+        </div>
+
+        <div class="tour-content">
+
+          <h3>El Mar y Las Lomas</h3>
+
+          <p>
+            Naturaleza costera, lomas y ecología limeña.
+          </p>
+
+          <div class="price">
+            Desde $50 por persona
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- HISTORIAS -->
+
+  <section id="historias">
+
+    <div class="section-title">
+
+      <div class="section-sub">
+        Historias
+      </div>
+
+      <h2>Historias de Lima</h2>
+
+    </div>
+
+    <div class="stories">
+
+      <div class="story">
+
+        <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="story-content">
+
+          <h3>Barranco de Noche</h3>
+
+          <p>
+            Música, arte urbano y cultura alternativa en el distrito bohemio de Lima.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="story">
+
+        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="story-content">
+
+          <h3>Mercados Populares</h3>
+
+          <p>
+            Historias humanas detrás de los mercados tradicionales limeños.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="story">
+
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="story-content">
+
+          <h3>La Costa Limeña</h3>
+
+          <p>
+            El mar, la neblina y la vida cotidiana frente al Pacífico.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACTO -->
+
+  <section id="contacto">
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+
+        <div class="section-sub">
+          Contacto
+        </div>
+
+        <h3>Contáctanos</h3>
+
         <p>
-          Una historia sobre desconexión, surf y vida frente al mar.
+          Escríbenos para reservar experiencias, realizar propuestas
+          o solicitar tours personalizados.
         </p>
-      </div>
 
-    </div>
-
-    <!-- STORY 2 -->
-
-    <div class="story-card"
-      onclick="openStoryModal(
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400',
-      'Camping frente al mar',
-      `Dormir frente al océano transforma completamente la experiencia de viaje.
-
-Las noches se vuelven silenciosas,
-iluminadas únicamente por las estrellas y el sonido del mar.
-
-Compartir historias alrededor de una fogata,
-cocinar al aire libre
-y despertar viendo el amanecer sobre el agua
-crea recuerdos difíciles de olvidar.
-
-Muchas personas llegan buscando aventura,
-pero terminan encontrando tranquilidad.
-
-El camping permite desconectarse de las pantallas,
-del tráfico y del ritmo acelerado de la rutina.
-
-Aquí el tiempo funciona distinto.
-Las conversaciones duran más,
-los amaneceres se disfrutan más
-y las experiencias se sienten más reales.`
-      )">
-
-      <div class="story-images">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
-      </div>
-
-      <div class="story-content">
-        <h3>Camping frente al mar</h3>
         <p>
-          Fogatas, amaneceres y experiencias auténticas.
+          <strong>WhatsApp:</strong><br>
+          +51 987 654 321
         </p>
+
+        <p>
+          <strong>Email:</strong><br>
+          hola@extremooeste.pe
+        </p>
+
+        <p>
+          <strong>Ubicación:</strong><br>
+          Lima, Perú
+        </p>
+
+      </div>
+
+      <!-- FORM -->
+
+      <div class="contact-form">
+
+        <form action="mailto:hola@extremooeste.pe" method="POST" enctype="text/plain">
+
+          <input type="text" placeholder="Nombre" required>
+
+          <input type="email" placeholder="Correo electrónico" required>
+
+          <textarea placeholder="Escribe tu propuesta o pregunta"></textarea>
+
+          <button type="submit">
+            Enviar Mensaje
+          </button>
+
+        </form>
+
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- FOOTER -->
 
-<!-- =====================================================
-     STORY MODAL
-===================================================== -->
+  <footer>
 
-<div class="modal" id="storyModal">
+    © 2026 Extremo Oeste · Turismo Cultural Alternativo en Lima
 
-  <span class="close" onclick="closeStoryModal()">×</span>
+  </footer>
 
-  <div class="modal-content">
+  <!-- WHATSAPP -->
 
-    <div class="modal-images">
+  <a
+    href="https://wa.me/51987654321"
+    class="whatsapp"
+    target="_blank">
 
-      <img id="modalImg1">
+    WhatsApp
 
-      <img id="modalImg2">
-
-    </div>
-
-    <div class="modal-body">
-
-      <h2 id="modalTitle"></h2>
-
-      <p id="modalText"></p>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-  <p>© 2026 EXTREMO OESTE</p>
-</footer>
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-/* =====================================================
-   HORIZONTAL SCROLL EXPERIENCIAS
-===================================================== */
-
-let scrollInterval;
-
-function startScroll(containerId, direction){
-
-  const container = document.getElementById(containerId);
-
-  stopScroll();
-
-  scrollInterval = setInterval(() => {
-
-    container.scrollLeft += direction * 12;
-
-  },10);
-}
-
-function stopScroll(){
-
-  clearInterval(scrollInterval);
-}
-
-/* =====================================================
-   STORY MODAL
-===================================================== */
-
-function openStoryModal(img1, img2, title, text){
-
-  document.getElementById('storyModal').style.display = 'flex';
-
-  document.getElementById('modalImg1').src = img1;
-
-  document.getElementById('modalImg2').src = img2;
-
-  document.getElementById('modalTitle').innerText = title;
-
-  document.getElementById('modalText').innerText = text;
-}
-
-function closeStoryModal(){
-
-  document.getElementById('storyModal').style.display = 'none';
-}
-
-/* =====================================================
-   CLOSE MODAL OUTSIDE
-===================================================== */
-
-window.onclick = function(e){
-
-  const modal = document.getElementById('storyModal');
-
-  if(e.target === modal){
-
-    closeStoryModal();
-  }
-}
-
-/* =====================================================
-   DRAG SCROLL EXPERIENCIAS
-===================================================== */
-
-const sliders = document.querySelectorAll('.scroll-container');
-
-sliders.forEach(slider => {
-
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  slider.addEventListener('mousedown', (e) => {
-
-    isDown = true;
-
-    startX = e.pageX - slider.offsetLeft;
-
-    scrollLeft = slider.scrollLeft;
-  });
-
-  slider.addEventListener('mouseleave', () => {
-
-    isDown = false;
-  });
-
-  slider.addEventListener('mouseup', () => {
-
-    isDown = false;
-  });
-
-  slider.addEventListener('mousemove', (e) => {
-
-    if(!isDown) return;
-
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-
-    const walk = (x - startX) * 2;
-
-    slider.scrollLeft = scrollLeft - walk;
-  });
-
-});
-
-</script>
+  </a>
 
 </body>
 </html>
