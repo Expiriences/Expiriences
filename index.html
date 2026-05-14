@@ -1,172 +1,289 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Extremo Oeste | Turismo Cultural</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<title>Extremo Oeste</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= BASE ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter;background:#0b0b0b;color:#fff;overflow-x:hidden}
-img{width:100%;display:block}
+/* =========================================
+   RESET
+========================================= */
 
-/* ================= NAV ================= */
-nav{
-position:fixed;top:0;width:100%;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(10px);
-z-index:1000;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-.nav{display:flex;justify-content:space-between;padding:20px 40px}
-.logo{font-family:Oswald;font-size:28px}
 
-/* ================= HERO ================= */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0f0f0f;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
 .hero{
-height:100vh;
-display:flex;
-align-items:center;
-padding:0 8%;
-background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),
-url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c');
-background-size:cover;
-background-position:center;
-}
-.hero h1{font-family:Oswald;font-size:5rem}
-.hero p{max-width:700px;line-height:1.8}
-
-/* ================= SECTIONS ================= */
-section{padding:100px 8%}
-.title{font-family:Oswald;font-size:3rem;margin-bottom:20px}
-
-/* ================= SLIDER ================= */
-.slider{
-position:relative;
+  height:70vh;
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
 }
 
-.track{
-display:flex;
-gap:20px;
-overflow:hidden;
-scroll-behavior:smooth;
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
 }
 
-/* ================= CARDS ================= */
+.hero-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:4rem;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:1.2rem;
+  opacity:.9;
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section{
+  padding:60px 5%;
+}
+
+.section-title{
+  font-size:2rem;
+  margin-bottom:25px;
+}
+
+/* =========================================
+   HORIZONTAL SCROLL
+========================================= */
+
+.scroll-wrapper{
+  position:relative;
+}
+
+.scroll-container{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:10px 40px;
+  scrollbar-width:none;
+}
+
+.scroll-container::-webkit-scrollbar{
+  display:none;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
 .card{
-min-width:300px;
-background:#141414;
-border:1px solid rgba(255,255,255,.1);
-cursor:pointer;
-transition:.3s;
+  min-width:320px;
+  max-width:320px;
+  height:420px;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  flex-shrink:0;
+  cursor:pointer;
+  transition:.35s;
+  background:#222;
 }
-.card:hover{transform:translateY(-5px)}
-.card img{height:200px;object-fit:cover}
-.card-content{padding:15px}
 
-/* ================= STORIES ================= */
-.story{
-min-width:80%;
-background:#111;
-border:1px solid rgba(255,255,255,.1);
+.card:hover{
+  transform:translateY(-8px);
 }
-.story-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-}
-.story-content{padding:20px;line-height:1.8}
 
-/* ================= ARROWS ================= */
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.95), transparent);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:25px;
+}
+
+.card-overlay h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+.card-overlay p{
+  font-size:.95rem;
+  opacity:.9;
+  line-height:1.5;
+}
+
+/* =========================================
+   ARROWS
+========================================= */
+
 .arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:55px;
-height:55px;
-border-radius:50%;
-border:1px solid rgba(255,255,255,.2);
-background:#000;
-color:#fff;
-cursor:pointer;
-z-index:10;
-transition:.3s;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:50%;
+  background:rgba(0,0,0,.7);
+  color:white;
+  font-size:28px;
+  cursor:pointer;
+  z-index:20;
+  transition:.3s;
+  backdrop-filter:blur(5px);
 }
-.arrow:hover{background:#d77c4a}
 
-.left{left:-10px}
-.right{right:-10px}
+.arrow:hover{
+  background:#ff7b00;
+  transform:translateY(-50%) scale(1.1);
+}
 
-/* ================= MODAL ================= */
+.arrow-left{
+  left:0;
+}
+
+.arrow-right{
+  right:0;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
 .modal{
-position:fixed;inset:0;
-background:rgba(0,0,0,.85);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:9999;
-padding:20px;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
-.modal.active{display:flex}
 
-.box{
-background:#111;
-padding:30px;
-max-width:600px;
-width:100%;
-position:relative;
+.modal-content{
+  background:#181818;
+  width:90%;
+  max-width:800px;
+  border-radius:20px;
+  overflow:hidden;
+  animation:fadeIn .3s ease;
 }
+
+.modal img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+}
+
+.modal-body{
+  padding:30px;
+}
+
+.modal-body h2{
+  margin-bottom:15px;
+}
+
+.modal-body p{
+  line-height:1.8;
+  opacity:.9;
+}
+
 .close{
-position:absolute;
-top:10px;right:15px;
-cursor:pointer;
-color:#d77c4a;
-font-size:22px;
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
 }
 
-/* ================= CONTACT ================= */
-.contact{
-background:
-linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),
-url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
-background-size:cover;
-background-position:center;
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 }
 
-form{
-max-width:600px;
-background:rgba(0,0,0,.6);
-padding:20px;
-}
-input,textarea{
-width:100%;
-padding:12px;
-margin-bottom:10px;
-background:#1a1a1a;
-border:1px solid rgba(255,255,255,.1);
-color:#fff;
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+  padding:40px 20px;
+  text-align:center;
+  background:#090909;
 }
 
-/* ================= WHATSAPP ================= */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:14px 18px;
-border-radius:50px;
-font-weight:bold;
-color:black;
+footer p{
+  opacity:.7;
 }
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media(max-width:768px){
-.hero h1{font-size:3rem}
-.card{min-width:85%}
-.story{min-width:95%}
-.nav{padding:15px 20px}
+
+  .hero h1{
+    font-size:2.5rem;
+  }
+
+  .card{
+    min-width:260px;
+    max-width:260px;
+    height:360px;
+  }
+
+  .arrow{
+    width:45px;
+    height:45px;
+    font-size:22px;
+  }
+
 }
 
 </style>
@@ -174,176 +291,366 @@ color:black;
 
 <body>
 
-<!-- CONFIG -->
-<script>
-const CONFIG = {
-whatsapp:"51999156493",
-message:"Hi, How can I help you?",
-email:"LimaExpiriences@gmail.com"
-};
-</script>
+<!-- =========================================
+     HERO
+========================================= -->
 
-<!-- NAV -->
-<nav>
-<div class="nav">
-<div class="logo">Extremo Oeste</div>
-</div>
-</nav>
-
-<!-- HERO -->
 <section class="hero">
-<div>
-<h1>Descubre Lima</h1>
-<p>
-Turismo cultural alternativo enfocado en experiencias reales,
-historia viva y recorridos urbanos auténticos.
-</p>
-</div>
+  <div class="hero-content">
+    <h1>EXTREMO OESTE</h1>
+    <p>Experiencias únicas en la costa del Perú</p>
+  </div>
 </section>
 
-<!-- ================= EXPERIENCIAS ================= -->
-<section>
-<h2 class="title">Experiencias</h2>
+<!-- =========================================
+     EXPERIENCIAS
+========================================= -->
 
-<div class="slider">
-<button class="arrow left" onclick="scroll('exp',-320)">‹</button>
-<button class="arrow right" onclick="scroll('exp',320)">›</button>
+<section class="section">
 
-<div class="track" id="exp">
+  <h2 class="section-title">Experiencias</h2>
 
-<!-- 8 EXPERIENCIAS -->
-<div class="card" data-t="Lima Precolombina" data-d="Huacas y arqueología urbana." data-p="$65">
-<img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849">
-<div class="card-content"><h3>Lima Precolombina</h3></div>
-</div>
+  <div class="scroll-wrapper">
 
-<div class="card" data-t="Mercado Central" data-d="Gastronomía local." data-p="$55">
-<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
-<div class="card-content"><h3>Mercado Central</h3></div>
-</div>
+    <button class="arrow arrow-left"
+      onmouseenter="startScroll('experiencias', -1)"
+      onmouseleave="stopScroll()">
+      ❮
+    </button>
 
-<div class="card" data-t="Barranco Nocturno" data-d="Arte urbano y vida nocturna." data-p="$45">
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
-<div class="card-content"><h3>Barranco</h3></div>
-</div>
+    <div class="scroll-container" id="experiencias">
 
-<div class="card" data-t="Cocina Limeña" data-d="Sabores tradicionales." data-p="$70">
-<img src="https://images.unsplash.com/photo-1547592180-85f173990554">
-<div class="card-content"><h3>Cocina</h3></div>
-</div>
+      <!-- CARD 1 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400',
+        'Surf en Lobitos',
+        'Disfruta una experiencia completa de surf en una de las mejores playas del Perú.'
+        )">
 
-<div class="card" data-t="Lomas de Lima" data-d="Naturaleza costera." data-p="$50">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<div class="card-content"><h3>Lomas</h3></div>
-</div>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
 
-<div class="card" data-t="Callao Cultural" data-d="Arte urbano portuario." data-p="$60">
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-<div class="card-content"><h3>Callao</h3></div>
-</div>
+        <div class="card-overlay">
+          <h3>Surf en Lobitos</h3>
+          <p>Olas perfectas y aventura.</p>
+        </div>
+      </div>
 
-<div class="card" data-t="Ruta Fotográfica" data-d="Fotografía urbana." data-p="$55">
-<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828">
-<div class="card-content"><h3>Foto</h3></div>
-</div>
+      <!-- CARD 2 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400',
+        'Atardecer',
+        'Vive atardeceres únicos frente al mar.'
+        )">
 
-<div class="card" data-t="Gamarra Experience" data-d="Moda popular." data-p="$40">
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-<div class="card-content"><h3>Gamarra</h3></div>
-</div>
+        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
 
-</div>
-</div>
+        <div class="card-overlay">
+          <h3>Atardecer</h3>
+          <p>Paisajes inolvidables.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400',
+        'Camping',
+        'Conecta con la naturaleza y el océano.'
+        )">
+
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
+
+        <div class="card-overlay">
+          <h3>Camping</h3>
+          <p>Escapa de la rutina.</p>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1400',
+        'Kayak',
+        'Explora el océano desde otra perspectiva.'
+        )">
+
+        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1400">
+
+        <div class="card-overlay">
+          <h3>Kayak</h3>
+          <p>Aventura marina.</p>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400',
+        'Naturaleza',
+        'Descubre lugares únicos.'
+        )">
+
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
+
+        <div class="card-overlay">
+          <h3>Naturaleza</h3>
+          <p>Explora nuevos paisajes.</p>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1400',
+        'Relax',
+        'Desconéctate frente al mar.'
+        )">
+
+        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1400">
+
+        <div class="card-overlay">
+          <h3>Relax</h3>
+          <p>Momentos de calma.</p>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400',
+        'Exploración',
+        'Recorre playas escondidas.'
+        )">
+
+        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400">
+
+        <div class="card-overlay">
+          <h3>Exploración</h3>
+          <p>Nuevas aventuras.</p>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="card"
+        onclick="openModal(
+        'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=1400',
+        'Vida marina',
+        'Conecta con el océano.'
+        )">
+
+        <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=1400">
+
+        <div class="card-overlay">
+          <h3>Vida marina</h3>
+          <p>Experiencias auténticas.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="arrow arrow-right"
+      onmouseenter="startScroll('experiencias', 1)"
+      onmouseleave="stopScroll()">
+      ❯
+    </button>
+
+  </div>
 </section>
 
-<!-- ================= HISTORIAS ================= -->
-<section>
-<h2 class="title">Historias</h2>
+<!-- =========================================
+     HISTORIAS
+========================================= -->
 
-<div class="slider">
-<button class="arrow left" onclick="scroll('hist',-320)">‹</button>
-<button class="arrow right" onclick="scroll('hist',320)">›</button>
+<section class="section">
 
-<div class="track" id="hist">
+  <h2 class="section-title">Historias</h2>
 
-<div class="story">
-<div class="story-grid">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-</div>
-<div class="story-content">Historia 1 (800 palabras)</div>
-</div>
+  <div class="scroll-wrapper">
 
-<div class="story">
-<div class="story-grid">
-<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828">
-<img src="https://images.unsplash.com/photo-1547592180-85f173990554">
-</div>
-<div class="story-content">Historia 2</div>
-</div>
+    <button class="arrow arrow-left"
+      onmouseenter="startScroll('historias', -1)"
+      onmouseleave="stopScroll()">
+      ❮
+    </button>
 
-<div class="story">
-<div class="story-grid">
-<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
-</div>
-<div class="story-content">Historia 3</div>
-</div>
+    <div class="scroll-container" id="historias">
 
-</div>
-</div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400">
+        <div class="card-overlay">
+          <h3>Historia 1</h3>
+          <p>Una experiencia inolvidable.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1400">
+        <div class="card-overlay">
+          <h3>Historia 2</h3>
+          <p>Conexión con el océano.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400">
+        <div class="card-overlay">
+          <h3>Historia 3</h3>
+          <p>Momentos reales.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="arrow arrow-right"
+      onmouseenter="startScroll('historias', 1)"
+      onmouseleave="stopScroll()">
+      ❯
+    </button>
+
+  </div>
 </section>
 
-<!-- CONTACTO -->
-<section class="contact">
-<h2 class="title">Contacto</h2>
+<!-- =========================================
+     MODAL
+========================================= -->
 
-<form action="mailto:LimaExpiriences@gmail.com">
-<input placeholder="Nombre">
-<input placeholder="Email">
-<textarea placeholder="Mensaje"></textarea>
-<button>Enviar</button>
-</form>
-</section>
-
-<!-- WHATSAPP -->
-<a class="whatsapp" id="wa">WhatsApp</a>
-
-<!-- MODAL -->
 <div class="modal" id="modal">
-<div class="box">
-<span class="close" onclick="closeModal()">×</span>
-<h2 id="t"></h2>
-<p id="d"></p>
-<p id="p"></p>
+
+  <span class="close" onclick="closeModal()">×</span>
+
+  <div class="modal-content">
+
+    <img id="modalImg">
+
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+
+  </div>
+
 </div>
-</div>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+  <p>© 2026 Extremo Oeste</p>
+</footer>
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
 
 <script>
 
-/* WHATSAPP */
-document.getElementById("wa").href =
-"https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.message);
+/* =========================================
+   HORIZONTAL AUTO SCROLL
+========================================= */
 
-/* MODAL */
-const modal=document.getElementById("modal");
+let scrollInterval;
 
-document.querySelectorAll(".card").forEach(c=>{
-c.onclick=()=>{
-t.innerText=c.dataset.t;
-d.innerText=c.dataset.d;
-p.innerText=c.dataset.p;
-modal.classList.add("active");
+function startScroll(containerId, direction){
+
+  const container = document.getElementById(containerId);
+
+  stopScroll();
+
+  scrollInterval = setInterval(() => {
+
+    container.scrollLeft += direction * 12;
+
+  }, 10);
 }
+
+function stopScroll(){
+  clearInterval(scrollInterval);
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+function openModal(img, title, text){
+
+  document.getElementById('modal').style.display = 'flex';
+
+  document.getElementById('modalImg').src = img;
+
+  document.getElementById('modalTitle').innerText = title;
+
+  document.getElementById('modalText').innerText = text;
+}
+
+function closeModal(){
+
+  document.getElementById('modal').style.display = 'none';
+}
+
+/* =========================================
+   CLOSE MODAL CLICK OUTSIDE
+========================================= */
+
+window.onclick = function(e){
+
+  const modal = document.getElementById('modal');
+
+  if(e.target === modal){
+
+    closeModal();
+  }
+}
+
+/* =========================================
+   DRAG SCROLL
+========================================= */
+
+const sliders = document.querySelectorAll('.scroll-container');
+
+sliders.forEach(slider => {
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+
+    isDown = true;
+
+    slider.classList.add('active');
+
+    startX = e.pageX - slider.offsetLeft;
+
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+
+    isDown = false;
+  });
+
+  slider.addEventListener('mouseup', () => {
+
+    isDown = false;
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+
+    if(!isDown) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - slider.offsetLeft;
+
+    const walk = (x - startX) * 2;
+
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
 });
-
-function closeModal(){modal.classList.remove("active");}
-window.onclick=e=>{if(e.target===modal)closeModal();}
-
-/* SCROLL */
-function scroll(id,val){
-document.getElementById(id).scrollBy({left:val,behavior:"smooth"});
-}
 
 </script>
 
