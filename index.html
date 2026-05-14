@@ -1,66 +1,758 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXTREMO OESTE</title>
 
-            </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        </div>
+  <style>
 
-    </section>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
+    html{
+      scroll-behavior:smooth;
+    }
 
-    <!-- =========================================
-       FOOTER
-    ========================================= -->
+    body{
+      background:#0F0F10;
+      color:#EDE8E1;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
 
-    <footer>
+    img{
+      width:100%;
+      display:block;
+      object-fit:cover;
+    }
 
-        <div class="footer-logo">
-            <span class="kanji-logo">西尾</span>
-            <span class="logo-text">EXTREMO OESTE</span>
-        </div>
+    section{
+      padding:100px 8%;
+    }
 
-        <p>
-            Alternative Cultural Experiences in Lima, Peru.
-        </p>
+    h1,h2,h3{
+      font-family:'Bebas Neue',sans-serif;
+      letter-spacing:2px;
+    }
 
-    </footer>
+    .section-tag{
+      color:#C2A878;
+      letter-spacing:2px;
+      font-size:.85rem;
+    }
 
+    /* NAVBAR */
 
-    <!-- =========================================
-       EXPERIENCE MODAL
-    ========================================= -->
+    .navbar{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,.4);
+      backdrop-filter:blur(10px);
+    }
 
-    <div class="modal" id="experience-modal">
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-        <div class="modal-content">
+    .kanji{
+      font-size:2rem;
+      color:#C2A878;
+    }
 
-            <span class="close-modal">×</span>
+    .logo-text{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.6rem;
+      letter-spacing:2px;
+    }
 
-            <img id="modal-image" src="" alt="Experience">
+    .nav-links{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
 
-            <div class="modal-body">
+    .nav-links a{
+      text-decoration:none;
+      color:#EDE8E1;
+      transition:.3s;
+    }
 
-                <h2 id="modal-title"></h2>
+    .nav-links a:hover{
+      color:#C2A878;
+    }
 
-                <p id="modal-description"></p>
+    .menu-toggle{
+      display:none;
+      font-size:2rem;
+      cursor:pointer;
+    }
 
-                <div class="modal-info">
-                    <span id="modal-duration"></span>
-                    <span id="modal-price"></span>
-                </div>
+    /* HERO */
 
-                <a href="https://wa.me/51999999999" class="btn-primary">
-                    Book via WhatsApp
-                </a>
+    .hero{
+      height:100vh;
+      background:url('https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+      position:relative;
+      display:flex;
+      align-items:center;
+    }
 
-            </div>
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.55);
+    }
 
-        </div>
+    .hero-content{
+      position:relative;
+      z-index:10;
+      max-width:700px;
+      padding:0 8%;
+    }
+
+    .hero h1{
+      font-size:7rem;
+      line-height:.9;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      max-width:500px;
+      line-height:1.7;
+      margin-bottom:35px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .card-button{
+      padding:14px 24px;
+      border:none;
+      text-decoration:none;
+      cursor:pointer;
+      transition:.3s;
+      font-weight:600;
+    }
+
+    .btn-primary{
+      background:#B35C3A;
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:#cd734f;
+    }
+
+    .btn-secondary{
+      border:1px solid #EDE8E1;
+      color:#EDE8E1;
+    }
+
+    .btn-secondary:hover{
+      background:#EDE8E1;
+      color:black;
+    }
+
+    /* INTRO */
+
+    .intro{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .intro img{
+      height:600px;
+    }
+
+    .intro h2{
+      font-size:4rem;
+      margin:20px 0;
+      line-height:1;
+    }
+
+    .intro p{
+      line-height:1.9;
+      margin-bottom:20px;
+      color:#d4d4d4;
+    }
+
+    /* EXPERIENCES */
+
+    .section-header{
+      margin-bottom:60px;
+    }
+
+    .section-header h2{
+      font-size:4rem;
+      margin-top:15px;
+    }
+
+    .experiences-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .experience-card{
+      background:#1E1F22;
+      overflow:hidden;
+      transition:.4s;
+    }
+
+    .experience-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .experience-card img{
+      height:320px;
+    }
+
+    .large-card{
+      grid-column:span 2;
+    }
+
+    .card-content{
+      padding:30px;
+    }
+
+    .card-category{
+      color:#C2A878;
+      letter-spacing:2px;
+      font-size:.8rem;
+    }
+
+    .card-content h3{
+      font-size:2.2rem;
+      margin:15px 0;
+    }
+
+    .card-content p{
+      color:#d3d3d3;
+      line-height:1.7;
+      margin-bottom:25px;
+    }
+
+    .card-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .card-price{
+      color:#C2A878;
+      font-weight:700;
+    }
+
+    .card-button{
+      background:none;
+      color:#EDE8E1;
+      padding:0;
+    }
+
+    .card-button:hover{
+      color:#C2A878;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+
+    .gallery-grid img{
+      height:350px;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact h2{
+      font-size:4rem;
+      margin:20px 0;
+    }
+
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      margin-top:30px;
+      flex-wrap:wrap;
+    }
+
+    .contact-links a{
+      color:#EDE8E1;
+      text-decoration:none;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.1);
+      padding:40px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* MODAL */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.85);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      z-index:5000;
+    }
+
+    .modal-content{
+      background:#1E1F22;
+      width:100%;
+      max-width:1000px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .close-modal{
+      position:absolute;
+      right:20px;
+      top:10px;
+      font-size:2rem;
+      cursor:pointer;
+      z-index:20;
+    }
+
+    .modal-content img{
+      height:420px;
+    }
+
+    .modal-body{
+      padding:40px;
+    }
+
+    .modal-body h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .modal-body p{
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .modal-info{
+      display:flex;
+      gap:25px;
+      margin-bottom:30px;
+      flex-wrap:wrap;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+      .intro{
+        grid-template-columns:1fr;
+      }
+
+      .experiences-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero h1{
+        font-size:5rem;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:80px;
+        right:0;
+        width:100%;
+        background:#111;
+        padding:30px;
+        flex-direction:column;
+        display:none;
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .hero h1{
+        font-size:4rem;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .experiences-grid{
+        grid-template-columns:1fr;
+      }
+
+      .large-card{
+        grid-column:span 1;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      .modal-content img{
+        height:250px;
+      }
+
+      .modal-body{
+        padding:25px;
+      }
+
+      footer{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+
+    <div class="logo">
+      <span class="kanji">西尾</span>
+      <span class="logo-text">EXTREMO OESTE</span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  </header>
+
+  <section class="hero" id="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        DISCOVER<br>
+        THE REAL LIMA
+      </h1>
+
+      <p>
+        Urban culture, history and human connection through alternative experiences in Peru.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#experiences" class="btn-primary">Explore Experiences</a>
+        <a href="#contact" class="btn-secondary">Contact Us</a>
+      </div>
 
     </div>
 
+  </section>
 
-    <!-- JAVASCRIPT -->
-    <script src="js/script.js"></script>
+  <section class="intro" id="about">
+
+    <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1974&auto=format&fit=crop" alt="Lima">
+
+    <div>
+
+      <span class="section-tag">ABOUT EXTREMO OESTE</span>
+
+      <h2>
+        Beyond tourism.<br>
+        Into culture.
+      </h2>
+
+      <p>
+        EXTREMO OESTE creates alternative cultural experiences in Lima focused on history, urban life, ecology and human connection.
+      </p>
+
+      <p>
+        Our routes are designed for travelers who want to understand Lima beyond traditional tourism.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section id="experiences">
+
+    <div class="section-header">
+      <span class="section-tag">EXPERIENCES</span>
+      <h2>Alternative Cultural Routes</h2>
+    </div>
+
+    <div class="experiences-grid">
+
+      <article class="experience-card large-card">
+
+        <img src="https://images.unsplash.com/photo-1544989164-31ad8bf4dfe8?q=80&w=1974&auto=format&fit=crop" alt="Tour">
+
+        <div class="card-content">
+
+          <span class="card-category">HISTORICAL LIMA</span>
+
+          <h3>Huacas Itchma Experience</h3>
+
+          <p>
+            Discover Lima as an ancient city through archaeology, urban landscapes and living history.
+          </p>
+
+          <div class="card-footer">
+            <span class="card-price">From $75</span>
+            <button class="card-button open-modal"
+              data-title="Huacas Itchma Experience"
+              data-image="https://images.unsplash.com/photo-1544989164-31ad8bf4dfe8?q=80&w=1974&auto=format&fit=crop"
+              data-description="Explore Lima's ancient ceremonial centers while understanding the evolution of the city from pre-Columbian times to modern urban life."
+              data-duration="4 Hours"
+              data-price="$75">
+              Explore →
+            </button>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="experience-card">
+
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1974&auto=format&fit=crop" alt="Food Tour">
+
+        <div class="card-content">
+
+          <span class="card-category">GASTRONOMY</span>
+
+          <h3>Street Food Experience</h3>
+
+          <p>
+            Taste traditional Lima through markets, local food and cultural storytelling.
+          </p>
+
+          <div class="card-footer">
+            <span class="card-price">From $55</span>
+            <button class="card-button open-modal"
+              data-title="Street Food Experience"
+              data-image="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1974&auto=format&fit=crop"
+              data-description="Experience Lima through its street food culture and traditional flavors."
+              data-duration="3 Hours"
+              data-price="$55">
+              Explore →
+            </button>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="experience-card">
+
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1974&auto=format&fit=crop" alt="Nightlife">
+
+        <div class="card-content">
+
+          <span class="card-category">NIGHTLIFE</span>
+
+          <h3>Alternative Lima Nights</h3>
+
+          <p>
+            Explore Lima's underground cultural spaces, bars and music scene.
+          </p>
+
+          <div class="card-footer">
+            <span class="card-price">From $60</span>
+            <button class="card-button open-modal"
+              data-title="Alternative Lima Nights"
+              data-image="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1974&auto=format&fit=crop"
+              data-description="Experience Lima's alternative nightlife scene through music, bars and urban culture."
+              data-duration="4 Hours"
+              data-price="$60">
+              Explore →
+            </button>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section id="gallery">
+
+    <div class="section-header">
+      <span class="section-tag">GALLERY</span>
+      <h2>The Real Lima</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1544989164-31ad8bf4dfe8?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1974&auto=format&fit=crop">
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <span class="section-tag">CONTACT</span>
+
+    <h2>Start Your Experience</h2>
+
+    <p>
+      Contact us to book private experiences and discover Lima from a different perspective.
+    </p>
+
+    <div class="contact-links">
+      <a href="#">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">Email</a>
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="logo">
+      <span class="kanji">西尾</span>
+      <span class="logo-text">EXTREMO OESTE</span>
+    </div>
+
+    <p>Alternative Cultural Experiences in Lima, Peru.</p>
+
+  </footer>
+
+  <div class="modal" id="modal">
+
+    <div class="modal-content">
+
+      <span class="close-modal" id="close-modal">×</span>
+
+      <img id="modal-image" src="" alt="Experience">
+
+      <div class="modal-body">
+
+        <h2 id="modal-title"></h2>
+
+        <p id="modal-description"></p>
+
+        <div class="modal-info">
+          <span id="modal-duration"></span>
+          <span id="modal-price"></span>
+        </div>
+
+        <a href="#" class="btn-primary">Book via WhatsApp</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // MOBILE MENU
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+
+    // MODAL
+
+    const modal = document.getElementById('modal');
+    const modalButtons = document.querySelectorAll('.open-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalDuration = document.getElementById('modal-duration');
+    const modalPrice = document.getElementById('modal-price');
+
+    modalButtons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        modal.style.display = 'flex';
+
+        modalTitle.textContent = button.dataset.title;
+        modalImage.src = button.dataset.image;
+        modalDescription.textContent = button.dataset.description;
+        modalDuration.textContent = '⏱ ' + button.dataset.duration;
+        modalPrice.textContent = '💲 ' + button.dataset.price;
+
+      });
+
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if(e.target === modal){
+        modal.style.display = 'none';
+      }
+    });
+
+  </script>
 
 </body>
 </html>
