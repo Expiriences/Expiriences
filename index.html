@@ -13,49 +13,99 @@
 
 <style>
 
-/* ================= RESET ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#080808;color:#fff;font-family:Inter;overflow-x:hidden}
-img{width:100%;display:block}
-a{text-decoration:none;color:inherit}
+/* =====================================================
+BASE
+===================================================== */
 
-/* ================= NAV ================= */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+background:#0a0a0a;
+color:#fff;
+font-family:Inter;
+overflow-x:hidden;
+}
+
+img{width:100%;display:block}
+
+/* =====================================================
+NAV
+===================================================== */
+
 nav{
-position:fixed;top:0;width:100%;
+position:fixed;
+top:0;
+width:100%;
 background:rgba(0,0,0,.6);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
+
 .nav{
-display:flex;justify-content:space-between;
+display:flex;
+justify-content:space-between;
 padding:20px 40px;
 }
-.logo{font-family:Oswald;font-size:28px;font-weight:700}
 
-/* ================= HERO ================= */
+.logo{
+font-family:Oswald;
+font-size:28px;
+font-weight:700;
+}
+
+/* =====================================================
+SECCIONES
+===================================================== */
+
+section{
+padding:100px 8%;
+}
+
+.title{
+font-family:Oswald;
+font-size:3rem;
+margin-bottom:30px;
+}
+
+/* =====================================================
+INICIO
+===================================================== */
+
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
 align-items:center;
-padding:0 8%;
 background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
 url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c');
 background-size:cover;
 background-position:center;
 }
-.hero h1{font-family:Oswald;font-size:5rem}
 
-/* ================= SECTION ================= */
-section{padding:100px 8%}
-.title{font-family:Oswald;font-size:3rem;margin-bottom:30px}
+.hero-box{
+max-width:800px;
+}
 
-/* ================= EXPERIENCIAS ================= */
+.hero h1{
+font-family:Oswald;
+font-size:5rem;
+margin-bottom:20px;
+}
+
+.hero p{
+line-height:1.8;
+color:rgba(255,255,255,.8);
+}
+
+/* =====================================================
+EXPERIENCIAS
+===================================================== */
+
 .scroll{
 display:flex;
 gap:20px;
 overflow-x:auto;
 scroll-behavior:smooth;
+padding-bottom:20px;
 }
 
 .card{
@@ -65,12 +115,84 @@ cursor:pointer;
 border:1px solid rgba(255,255,255,.1);
 transition:.3s;
 }
+
 .card:hover{transform:scale(1.03)}
 
 .card img{height:200px;object-fit:cover}
+
 .card-content{padding:15px}
 
-/* ================= MODAL ================= */
+/* =====================================================
+HISTORIAS
+===================================================== */
+
+.story-scroll{
+display:flex;
+gap:30px;
+overflow-x:auto;
+scroll-behavior:smooth;
+}
+
+.story{
+min-width:80%;
+background:#111;
+border:1px solid rgba(255,255,255,.1);
+padding:30px;
+}
+
+.story-images{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-bottom:20px;
+}
+
+.story-images img{
+height:250px;
+object-fit:cover;
+}
+
+/* =====================================================
+CONTACTO
+===================================================== */
+
+.contact{
+background:
+linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+background-size:cover;
+background-position:center;
+}
+
+.form{
+max-width:600px;
+background:rgba(0,0,0,.6);
+padding:30px;
+border:1px solid rgba(255,255,255,.1);
+}
+
+input,textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+background:#111;
+border:1px solid rgba(255,255,255,.1);
+color:#fff;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#d77c4a;
+border:none;
+color:#fff;
+cursor:pointer;
+}
+
+/* =====================================================
+MODAL
+===================================================== */
+
 .modal{
 position:fixed;
 inset:0;
@@ -78,49 +200,37 @@ display:none;
 justify-content:center;
 align-items:center;
 background:rgba(0,0,0,.85);
-z-index:9999;
 padding:20px;
+z-index:9999;
 }
 
-.modal.active{display:flex;animation:fade .3s}
-
-@keyframes fade{
-from{opacity:0;transform:scale(.9)}
-to{opacity:1;transform:scale(1)}
-}
+.modal.active{display:flex}
 
 .modal-box{
 background:#111;
 padding:30px;
 max-width:600px;
 width:100%;
-border:1px solid rgba(255,255,255,.1);
-position:relative;
 }
 
-.close{
-position:absolute;
-top:10px;
-right:15px;
-font-size:25px;
-cursor:pointer;
-color:#d77c4a;
-}
+/* =====================================================
+WHATSAPP
+===================================================== */
 
-/* ================= WHATSAPP ================= */
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
-padding:14px 18px;
+padding:15px 18px;
 border-radius:50px;
+color:#000;
 font-weight:bold;
-color:black;
 }
 
 @media(max-width:768px){
 .hero h1{font-size:3rem}
+.story-images{grid-template-columns:1fr}
 }
 
 </style>
@@ -128,99 +238,211 @@ color:black;
 
 <body>
 
-<!-- NAV -->
+<!-- =====================================================
+CONFIG (EDITA TODO AQUÍ)
+===================================================== -->
+
+<script>
+const CONFIG = {
+
+whatsappNumber: "51999156493",
+whatsappMessage: "Hi, How can I help you?",
+
+email: "LimaExpiriences@gmail.com",
+
+experiences: [
+{
+title:"Lima Precolombina",
+img:"https://images.unsplash.com/photo-1589909202802-8f4aadce1849",
+desc:"Huacas milenarias y arqueología urbana.",
+price:"$65"
+},
+{
+title:"Mercado Central",
+img:"https://images.unsplash.com/photo-1523906834658-6e24ef2386f9",
+desc:"Gastronomía local y cultura popular.",
+price:"$55"
+},
+{
+title:"Barranco Nocturno",
+img:"https://images.unsplash.com/photo-1519501025264-65ba15a82390",
+desc:"Arte urbano y vida nocturna.",
+price:"$45"
+}
+]
+};
+</script>
+
+<!-- =====================================================
+NAV
+===================================================== -->
+
 <nav>
 <div class="nav">
 <div class="logo">Extremo Oeste</div>
 </div>
 </nav>
 
-<!-- HERO -->
+<!-- =====================================================
+INICIO
+===================================================== -->
+
 <section class="hero">
-<div>
-<h1>Descubre Lima</h1>
-<p>Turismo cultural alternativo</p>
+
+<div class="hero-box">
+
+<h1>Descubre Lima Real</h1>
+
+<p>
+AQUI VA TU TEXTO DE VISIÓN (máx 300 palabras).
+Describe la misión de la empresa, el tipo de turismo,
+la experiencia cultural y el valor diferencial del servicio.
+</p>
+
 </div>
+
 </section>
 
-<!-- EXPERIENCIAS -->
+<!-- =====================================================
+EXPERIENCIAS
+===================================================== -->
+
 <section>
+
 <h2 class="title">Experiencias</h2>
 
-<div class="scroll">
+<div class="scroll" id="exp"></div>
 
-<div class="card" data-title="Lima Precolombina" data-text="Huacas milenarias y arqueología urbana." data-price="$65">
-<img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849">
-<div class="card-content">
-<h3>Lima Precolombina</h3>
-</div>
-</div>
-
-<div class="card" data-title="Mercado Central" data-text="Gastronomía local." data-price="$55">
-<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
-<div class="card-content">
-<h3>Mercado Central</h3>
-</div>
-</div>
-
-<div class="card" data-title="Barranco Nocturno" data-text="Arte urbano y vida nocturna." data-price="$45">
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
-<div class="card-content">
-<h3>Barranco Nocturno</h3>
-</div>
-</div>
-
-</div>
 </section>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-box">
-<span class="close" onclick="closeModal()">×</span>
-
 <h2 id="m-title"></h2>
-<p id="m-text"></p>
+<p id="m-desc"></p>
 <p id="m-price"></p>
-
+<span onclick="closeModal()" style="cursor:pointer;color:#d77c4a">Cerrar</span>
 </div>
 </div>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" id="wa" target="_blank">WhatsApp</a>
+<!-- =====================================================
+HISTORIAS
+===================================================== -->
+
+<section>
+
+<h2 class="title">Historias</h2>
+
+<div class="story-scroll">
+
+<div class="story">
+
+<div class="story-images">
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
+<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
+</div>
+
+<p>
+Historia 1 (hasta 800 palabras)...
+</p>
+
+</div>
+
+<div class="story">
+
+<div class="story-images">
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+</div>
+
+<p>
+Historia 2...
+</p>
+
+</div>
+
+<div class="story">
+
+<div class="story-images">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828">
+</div>
+
+<p>
+Historia 3...
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+CONTACTO
+===================================================== -->
+
+<section class="contact">
+
+<h2 class="title">Contacto</h2>
+
+<div class="form">
+
+<input placeholder="Nombre">
+<input placeholder="Email">
+<textarea placeholder="Mensaje"></textarea>
+
+<button>Enviar a <?php echo "LimaExpiriences@gmail.com"; ?></button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+WHATSAPP
+===================================================== -->
+
+<a class="whatsapp" id="wa" target="_blank">
+WhatsApp
+</a>
+
+<!-- =====================================================
+JS
+===================================================== -->
 
 <script>
 
-/* ================= CONFIG ================= */
-const WHATSAPP_NUMBER = "51987654321";
+/* WHATSAPP */
+document.getElementById("wa").href =
+`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
 
-/* ================= MODAL ================= */
-const modal = document.getElementById("modal");
+/* RENDER EXPERIENCES */
+const exp = document.getElementById("exp");
 
-document.querySelectorAll(".card").forEach(card=>{
-card.addEventListener("click",()=>{
-document.getElementById("m-title").innerText = card.dataset.title;
-document.getElementById("m-text").innerText = card.dataset.text;
-document.getElementById("m-price").innerText = card.dataset.price;
-
-modal.classList.add("active");
+CONFIG.experiences.forEach((e,i)=>{
+exp.innerHTML += `
+<div class="card" onclick="openModal(${i})">
+<img src="${e.img}">
+<div class="card-content">
+<h3>${e.title}</h3>
+<p>${e.desc}</p>
+<p><b>${e.price}</b></p>
+</div>
+</div>`;
 });
-});
 
-function closeModal(){
-modal.classList.remove("active");
+/* MODAL */
+function openModal(i){
+const e = CONFIG.experiences[i];
+document.getElementById("m-title").innerText = e.title;
+document.getElementById("m-desc").innerText = e.desc;
+document.getElementById("m-price").innerText = e.price;
+document.getElementById("modal").classList.add("active");
 }
 
-window.addEventListener("click",(e)=>{
-if(e.target === modal) closeModal();
-});
-
-document.addEventListener("keydown",(e)=>{
-if(e.key==="Escape") closeModal();
-});
-
-/* ================= WHATSAPP ================= */
-document.getElementById("wa").href =
-"https://wa.me/" + WHATSAPP_NUMBER;
+function closeModal(){
+document.getElementById("modal").classList.remove("active");
+}
 
 </script>
 
