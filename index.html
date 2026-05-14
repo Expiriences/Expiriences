@@ -1,683 +1,179 @@
 <!-- =====================================================
-EXTREMO OESTE — VERSION EDITABLE Y ORGANIZADA
-=====================================================
+EXTREMO OESTE — VERSION AGENCIA (ULTRA EDITABLE / SEÑALIZADA)
+====================================================
 
-ESTA VERSION ESTA PREPARADA PARA:
+ESTA VERSION ESTA DISEÑADA PARA QUE PUEDAS EDITAR TODO SIN ROMPER EL CODIGO
 
-✅ GitHub Pages
-✅ Cambiar textos facilmente
-✅ Cambiar imagenes facilmente
-✅ Cambiar videos facilmente
-✅ Scroll horizontal
-✅ Ventanas emergentes (MODALS)
-✅ 8 experiencias
-✅ 3 historias
-✅ WhatsApp flotante
-✅ Responsive
+🔴 CAMBIAR IMAGENES → BUSCA: IMAGE
+🔵 CAMBIAR TEXTOS → BUSCA: TEXT
+🟡 CAMBIAR PRECIOS → BUSCA: PRICE
+🟢 CAMBIAR LINKS → BUSCA: LINK
 
-=====================================================
-GUIA RAPIDA
-=====================================================
-
-1. CAMBIAR IMAGEN HERO
-BUSCAR:
-"HERO BACKGROUND IMAGE"
-
-2. USAR VIDEO HERO
-BUSCAR:
-"HERO VIDEO"
-
-3. CAMBIAR EXPERIENCIAS
-BUSCAR:
-"EXPERIENCIA 1"
-
-4. CAMBIAR HISTORIAS
-BUSCAR:
-"HISTORIA 1"
-
-5. CAMBIAR WHATSAPP
-BUSCAR:
-"WHATSAPP NUMBER"
-
-6. CAMBIAR EMAIL
-BUSCAR:
-"EMAIL EMPRESA"
-
-===================================================== -->
-
+==================================================== -->
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extremo Oeste | Agencia de Turismo</title>
 
-<title>
-Extremo Oeste | Turismo Cultural
-</title>
-
-<!-- =====================================================
-GOOGLE FONTS
-===================================================== -->
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap"
-rel="stylesheet">
-
-<!-- =====================================================
-FONT AWESOME ICONS
-===================================================== -->
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* =====================================================
-RESET
-===================================================== */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
+/* =========================
+BASE
+========================= */
 body{
-background:#080808;
-color:white;
+margin:0;
 font-family:'Inter',sans-serif;
-overflow-x:hidden;
-}
-
-img{
-width:100%;
-display:block;
-}
-
-a{
-text-decoration:none;
+background:#0b0b0b;
 color:white;
 }
+img{width:100%;display:block;}
 
-/* =====================================================
-NAVBAR
-===================================================== */
-
+/* =========================
+NAV (EDIT TEXT LOGO)
+========================= */
 nav{
 position:fixed;
 top:0;
 width:100%;
-z-index:1000;
-background:rgba(0,0,0,.45);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,.08);
+background:rgba(0,0,0,.7);
+z-index:999;
 }
 
 .nav-container{
-max-width:1450px;
-margin:auto;
-padding:22px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:15px 20px;
 }
 
 .logo{
-font-family:'Oswald',sans-serif;
-font-size:2.2rem;
-font-weight:700;
-line-height:1;
-text-transform:uppercase;
-}
-
-.menu{
-display:flex;
-gap:40px;
+font-family:'Oswald';
+font-size:20px;
 }
 
 .menu a{
+margin-left:15px;
 text-transform:uppercase;
-letter-spacing:2px;
-font-size:.9rem;
-transition:.3s;
+font-size:12px;
 }
 
-.menu a:hover{
-color:#d77c4a;
-}
-
-/* =====================================================
-HERO
-===================================================== */
-
+/* =========================
+HERO SECTION
+========================= */
 .hero{
-position:relative;
 height:100vh;
-overflow:hidden;
-
-/* =====================================================
-HERO BACKGROUND IMAGE
-CAMBIAR IMAGEN AQUI
-===================================================== */
-
-background:
-linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.75)),
-url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-
 display:flex;
 align-items:center;
-padding:0 8%;
-}
-
-/* =====================================================
-HERO VIDEO
-PARA ACTIVAR VIDEO:
-
-1. QUITAR LOS COMENTARIOS
-2. SUBIR VIDEO A:
-videos/lima.mp4
-
-===================================================== */
-
-/*
-
-.hero-video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-1;
-}
-
-*/
-
-.hero-content{
-max-width:850px;
-position:relative;
-z-index:2;
-}
-
-.hero-sub{
-color:#d77c4a;
-letter-spacing:5px;
-text-transform:uppercase;
-margin-bottom:20px;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c'); /* IMAGE HERO */
+background-size:cover;
+background-position:center;
 }
 
 .hero h1{
-font-family:'Oswald',sans-serif;
-font-size:7rem;
-line-height:.92;
-text-transform:uppercase;
-margin-bottom:30px;
+font-family:'Oswald';
+font-size:clamp(32px,6vw,70px);
 }
 
 .hero p{
-line-height:1.9;
-font-size:1.1rem;
-color:rgba(255,255,255,.8);
-margin-bottom:40px;
-max-width:720px;
+max-width:600px;
+opacity:.8;
 }
 
 .btn{
 display:inline-block;
-padding:18px 40px;
+padding:12px 20px;
 border:1px solid #d77c4a;
-text-transform:uppercase;
-letter-spacing:3px;
-transition:.3s;
+margin-top:15px;
 }
 
-.btn:hover{
-background:#d77c4a;
-}
-
-/* =====================================================
-FEATURES
-===================================================== */
-
-.features{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-background:#050505;
-border-top:1px solid rgba(255,255,255,.08);
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.feature{
-padding:50px 35px;
-border-right:1px solid rgba(255,255,255,.08);
-}
-
-.feature:last-child{
-border-right:none;
-}
-
-.feature-icon{
-font-size:2rem;
-color:#d77c4a;
-margin-bottom:20px;
-}
-
-.feature h3{
-font-family:'Oswald',sans-serif;
-font-size:1.7rem;
-margin-bottom:15px;
-text-transform:uppercase;
-}
-
-.feature p{
-line-height:1.8;
-color:rgba(255,255,255,.7);
-}
-
-/* =====================================================
-SECTIONS
-===================================================== */
-
+/* =========================
+SECTION BASE
+========================= */
 section{
-padding:120px 8%;
+padding:60px 20px;
+}
+
+.section-title{
+font-family:'Oswald';
+font-size:32px;
+text-transform:uppercase;
 }
 
 .section-sub{
 color:#d77c4a;
-letter-spacing:5px;
-text-transform:uppercase;
-margin-bottom:15px;
-}
-
-.section-title{
-font-family:'Oswald',sans-serif;
-font-size:5rem;
-text-transform:uppercase;
-margin-bottom:20px;
-}
-
-.section-description{
-max-width:850px;
-line-height:1.9;
-color:rgba(255,255,255,.75);
-margin-bottom:60px;
-}
-
-/* =====================================================
-SCROLL HORIZONTAL
-===================================================== */
-
-.slider-container{
-position:relative;
-}
-
-.horizontal-scroll{
-display:flex;
-gap:30px;
-overflow-x:auto;
-scroll-behavior:smooth;
-padding-bottom:20px;
-scrollbar-width:none;
-}
-
-.horizontal-scroll::-webkit-scrollbar{
-display:none;
-}
-
-/* =====================================================
-FLECHAS
-===================================================== */
-
-.arrow{
-position:absolute;
-top:45%;
-transform:translateY(-50%);
-width:60px;
-height:60px;
-border:none;
-border-radius:50%;
-background:rgba(0,0,0,.75);
-color:white;
-font-size:1.4rem;
-cursor:pointer;
-z-index:10;
-transition:.3s;
-}
-
-.arrow:hover{
-background:#d77c4a;
-}
-
-.arrow-left{
-left:-20px;
-}
-
-.arrow-right{
-right:-20px;
-}
-
-/* =====================================================
-EXPERIENCIAS
-===================================================== */
-
-.tour-card{
-min-width:380px;
-background:#111;
-border:1px solid rgba(255,255,255,.08);
-overflow:hidden;
-transition:.4s;
-cursor:pointer;
-flex-shrink:0;
-}
-
-.tour-card:hover{
-transform:translateY(-8px);
-border-color:#d77c4a;
-}
-
-.tour-image{
-height:420px;
-overflow:hidden;
-}
-
-.tour-image img{
-height:100%;
-object-fit:cover;
-transition:.5s;
-}
-
-.tour-card:hover img{
-transform:scale(1.05);
-}
-
-.tour-content{
-padding:30px;
-}
-
-.tour-content h3{
-font-family:'Oswald',sans-serif;
-font-size:2rem;
-margin-bottom:15px;
-text-transform:uppercase;
-}
-
-.tour-content p{
-line-height:1.8;
-color:rgba(255,255,255,.72);
-margin-bottom:20px;
-}
-
-.price{
-color:#d9a066;
-font-weight:700;
+font-size:12px;
 letter-spacing:2px;
-text-transform:uppercase;
 }
 
-/* =====================================================
-MODAL EXPERIENCIAS
-===================================================== */
-
-.modal{
-display:none;
-position:fixed;
-z-index:3000;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.88);
-padding:40px;
-overflow:auto;
+/* =========================
+CARDS (EXPERIENCIAS)
+========================= */
+.scroll{
+display:flex;
+overflow-x:auto;
+gap:15px;
 }
 
-.modal-content{
-background:#111;
-max-width:900px;
-margin:auto;
-padding:50px;
+.card{
+min-width:80%;
+background:#151515;
 border:1px solid rgba(255,255,255,.1);
-position:relative;
-animation:fade .4s;
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.close{
-position:absolute;
-top:20px;
-right:25px;
-font-size:2rem;
-cursor:pointer;
-color:#d77c4a;
-}
-
-.modal-content h2{
-font-family:'Oswald',sans-serif;
-font-size:4rem;
-margin-bottom:25px;
-text-transform:uppercase;
-}
-
-.modal-content p{
-line-height:2;
-color:rgba(255,255,255,.8);
-margin-bottom:25px;
-}
-
-/* =====================================================
-HISTORIAS
-===================================================== */
-
-.story-card{
-min-width:700px;
-background:#101010;
-border:1px solid rgba(255,255,255,.08);
-overflow:hidden;
-flex-shrink:0;
-}
-
-.story-gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-}
-
-.story-gallery img{
-height:420px;
+.card img{
+height:200px;
 object-fit:cover;
 }
 
-.story-content{
-padding:50px;
+.card-content{
+padding:15px;
 }
 
-.story-content h2{
-font-family:'Oswald',sans-serif;
-font-size:3rem;
-margin-bottom:20px;
-text-transform:uppercase;
+.card h3{
+font-family:'Oswald';
+font-size:18px;
 }
 
-.story-content p{
-line-height:2;
-color:rgba(255,255,255,.78);
-margin-bottom:25px;
+.card p{
+opacity:.7;
+font-size:13px;
 }
 
-/* =====================================================
-CONTACTO
-===================================================== */
-
-.contact-section{
-
-/* =====================================================
-CONTACT BACKGROUND IMAGE
-CAMBIAR IMAGEN AQUI
-===================================================== */
-
-background:
-linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
-url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=2000&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-}
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-}
-
-.contact-info h2{
-font-family:'Oswald',sans-serif;
-font-size:5rem;
-text-transform:uppercase;
-margin-bottom:30px;
-}
-
-.contact-info p{
-line-height:1.9;
-color:rgba(255,255,255,.78);
-margin-bottom:25px;
-}
-
-.contact-form{
-background:rgba(0,0,0,.55);
-padding:45px;
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
-}
-
-input,
-textarea{
-width:100%;
-padding:18px;
-background:#1b1b1b;
-border:1px solid rgba(255,255,255,.08);
-margin-bottom:20px;
-color:white;
-font-size:1rem;
-}
-
-textarea{
-min-height:220px;
-resize:none;
-}
-
-button{
-width:100%;
-padding:18px;
-background:#d77c4a;
-border:none;
-color:white;
-text-transform:uppercase;
-letter-spacing:3px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-background:#eb8a54;
-}
-
-/* =====================================================
+/* =========================
 WHATSAPP
-===================================================== */
-
+========================= */
 .whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:15px;
+right:15px;
 background:#25D366;
-padding:18px 30px;
-border-radius:100px;
-font-weight:700;
-z-index:999;
+padding:10px 15px;
+border-radius:50px;
+font-size:12px;
 color:black;
 }
 
-/* =====================================================
-RESPONSIVE
-===================================================== */
-
-@media(max-width:1000px){
-
-.hero h1{
-font-size:4.5rem;
-}
-
-.features{
-grid-template-columns:1fr;
-}
-
-.contact-grid{
-grid-template-columns:1fr;
-}
-
-.story-card{
-min-width:90%;
-}
-
-.tour-card{
-min-width:85%;
-}
-
-.menu{
-display:none;
-}
-
-.arrow{
-display:none;
-}
-
-.story-gallery{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
-
 </head>
-
 <body>
 
-<!-- =====================================================
-NAVBAR
-===================================================== -->
-
+<!-- =========================
+NAVBAR (TEXT EDIT HERE)
+========================= -->
 <nav>
-
 <div class="nav-container">
 
-<div class="logo">
-EXTREMO<br>OESTE
-</div>
+<!-- TEXT LOGO -->
+<div class="logo">EXTREMO OESTE</div>
 
 <div class="menu">
 <a href="#inicio">Inicio</a>
@@ -687,979 +183,129 @@ EXTREMO<br>OESTE
 </div>
 
 </div>
-
 </nav>
 
-<!-- =====================================================
-INICIO
-===================================================== -->
+<!-- =========================
+HERO SECTION
+========================= -->
+<section class="hero" id="inicio">
+<div>
 
-<section class="hero"
-id="inicio">
+<!-- TEXT HERO TITLE -->
+<h1>Descubre la Lima Real</h1>
 
-<!-- =====================================================
-HERO VIDEO
-DESCOMENTAR PARA ACTIVAR
-===================================================== -->
-
-<!--
-
-<video class="hero-video"
-autoplay
-muted
-loop
-playsinline>
-
-<source src="videos/lima.mp4"
-type="video/mp4">
-
-</video>
-
--->
-
-<div class="hero-content">
-
-<div class="hero-sub">
-Turismo Cultural Alternativo
-</div>
-
-<h1>
-Descubre<br>
-La Lima Real
-</h1>
-
+<!-- TEXT HERO DESCRIPTION -->
 <p>
-
-AQUI PUEDES CAMBIAR EL TEXTO PRINCIPAL DEL HERO.
-
-Describe la visión, filosofía y experiencias culturales
-de tu empresa turística.
-
+AQUI EDITAS EL TEXTO PRINCIPAL DEL HERO.
+Describe tu empresa, estilo o propuesta de valor.
 </p>
 
-<a href="#experiencias"
-class="btn">
-
-Explorar Experiencias
-
-</a>
+<!-- LINK BUTTON -->
+<a class="btn" href="#experiencias">Ver Experiencias</a>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-FEATURES
-===================================================== -->
-
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">
-<i class="fa-solid fa-users"></i>
-</div>
-
-<h3>Experiencias Reales</h3>
-
-<p>
-Conecta con la cultura viva de Lima.
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="feature-icon">
-<i class="fa-solid fa-landmark"></i>
-</div>
-
-<h3>Historia Viva</h3>
-
-<p>
-Comprende el pasado y presente de la ciudad.
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="feature-icon">
-<i class="fa-solid fa-leaf"></i>
-</div>
-
-<h3>Responsables</h3>
-
-<p>
-Turismo ético y sostenible.
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="feature-icon">
-<i class="fa-solid fa-location-dot"></i>
-</div>
-
-<h3>Rutas Alternativas</h3>
-
-<p>
-Explora lugares fuera del turismo convencional.
-</p>
-
-</div>
-
-</div>
-
-<!-- =====================================================
+<!-- =========================
 EXPERIENCIAS
-===================================================== -->
-
+========================= -->
 <section id="experiencias">
 
-<div class="section-sub">
-Experiencias
-</div>
+<div class="section-sub">EXPERIENCIAS</div>
+<div class="section-title">Tours Destacados</div>
 
-<h2 class="section-title">
-Tours Guiados
-</h2>
+<div class="scroll">
 
-<p class="section-description">
-Usa las flechas para desplazarte horizontalmente.
-Haz click sobre cada experiencia para abrir la descripción completa.
-</p>
+<!-- =========================
+CARD 1 (EDIT IMAGE + TEXT + PRICE)
+========================= -->
+<div class="card">
 
-<div class="slider-container">
+<!-- IMAGE -->
+<img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849">
 
-<button class="arrow arrow-left"
-onclick="scrollLeftCustom('experiencesScroll')">
+<div class="card-content">
 
-<i class="fa-solid fa-chevron-left"></i>
-
-</button>
-
-<button class="arrow arrow-right"
-onclick="scrollRightCustom('experiencesScroll')">
-
-<i class="fa-solid fa-chevron-right"></i>
-
-</button>
-
-<div class="horizontal-scroll"
-id="experiencesScroll">
-
-<!-- =====================================================
-EXPERIENCIA 1
-CAMBIAR:
-- IMAGEN
-- TITULO
-- TEXTO
-- PRECIO
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal1')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
+<!-- TEXT TITLE -->
 <h3>Lima Precolombina</h3>
 
-<p>
-Huacas milenarias y arqueología urbana.
-</p>
+<!-- TEXT DESCRIPTION -->
+<p>Huacas y arqueología urbana.</p>
 
-<div class="price">
-$65 por persona
-</div>
+<!-- PRICE -->
+<p><b>PRICE:</b> $65</p>
 
 </div>
-
 </div>
 
-<!-- =====================================================
-EXPERIENCIA 2
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal2')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
-
+<!-- =========================
+CARD 2
+========================= -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
+<div class="card-content">
+<h3>Mercados Locales</h3>
+<p>Gastronomía auténtica.</p>
+<p><b>PRICE:</b> $55</p>
+</div>
 </div>
 
-<div class="tour-content">
-
-<h3>Mercado Central</h3>
-
-<p>
-Gastronomía y comercio popular.
-</p>
-
-<div class="price">
-$55 por persona
-</div>
-
-</div>
-
-</div>
-
-  <!-- =====================================================
-EXPERIENCIA 3
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal3')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
+<!-- =========================
+CARD 3
+========================= -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519501025264-5ea266f8880c">
+<div class="card-content">
 <h3>Barranco Nocturno</h3>
-
-<p>
-Arte urbano, bares históricos y música local.
-</p>
-
-<div class="price">
-$45 por persona
+<p>Arte urbano y vida nocturna.</p>
+<p><b>PRICE:</b> $45</p>
+</div>
 </div>
 
 </div>
-
-</div>
-
-  <!-- =====================================================
-EXPERIENCIA 4
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal4')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=formed&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
-<h3>Cocina Limeña</h3>
-
-<p>
-Sabores tradicionales y gastronomía contemporánea.
-</p>
-
-<div class="price">
-$70 por persona
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCIA 5
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal5')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=formed&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
-<h3>Lomas de Lima</h3>
-
-<p>
-Naturaliza costera y paisajes ecológicos.
-</p>
-
-<div class="price">
-$50 por persona
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCE 6
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal6')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=formed&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
-<h3>Callao Cultural</h3>
-
-<p>
-Murals, historic port and urban art.
-</p>
-
-<div class="price">
-$60 per person
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCE 7
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal7')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=formed&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
-<h3>Photographic Route</h3>
-
-<p>
-Architecture, urban portraits and documentary photography.
-</p>
-
-<div class="price">
-$55 per person
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCE 8
-===================================================== -->
-
-<div class="tour-card"
-onclick="openModal('modal8')">
-
-<div class="tour-image">
-
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=formed&fit=crop">
-
-</div>
-
-<div class="tour-content">
-
-<h3>Gamarra Experience</h3>
-
-<p>
-Popular fashion and urban economy of Lima.
-</p>
-
-<div class="price">
-$40 per person
-</div>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-AQUI PUEDES DUPLICAR MAS EXPERIENCIAS
-HASTA 8 O MAS
-===================================================== -->
-
-</div>
-
-</div>
-
 </section>
 
-<!-- =====================================================
-MODAL EXPERIENCIA 1
-===================================================== -->
-
-<div id="modal1"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal('modal1')">
-
-&times;
-
-</span>
-
-<h2>Lima Precolombina</h2>
-
-<p>
-
-AQUI PUEDES ESCRIBIR LA DESCRIPCION COMPLETA
-DE LA EXPERIENCIA.
-
-Puedes agregar:
-
-- duración
-- itinerario
-- horarios
-- puntos visitados
-- recomendaciones
-- transporte
-- comidas incluidas
-
-</p>
-
-<p>
-Precio: $65 por persona.
-</p>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-MODAL EXPERIENCIA 2
-===================================================== -->
-
-<div id="modal2"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal('modal2')">
-
-&times;
-
-</span>
-
-<h2>Mercado Central</h2>
-
-<p>
-
-Describe aquí la experiencia gastronómica y cultural.
-
-</p>
-
-<p>
-Precio: $55 por persona.
-</p>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-MODAL EXPERIENCIA 3
-===================================================== -->
-
-<div id="modal3"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal(‘modal3’)">
-
-&times;
-
-</span>
-
-<h2>Night Ravine</h2>
-
-<p>
-Describe the cultural night tour here.
-</p>
-
-<p>
-Precio: $45 per persona.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-MODAL EXPERIENCIA 4
-===================================================== -->
-
-<div id="modal4"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal('modal4')">
-
-&times;
-
-</span>
-
-<h2>Cocina Limeña</h2>
-
-<p>
-Describe the dining experience here.
-</p>
-
-<p>
-Price: $70 per person.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCE MODAL 5
-===================================================== -->
-
-<div id="modal5"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal('modal5')">
-
-&times;
-
-</span>
-
-<h2>Lomas de Lima</h2>
-
-<p>
-Describe aquí la experimentia ecológica.
-</p>
-
-<p>
-Precio: $50 por persona.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-MODAL EXPERIENCE 6
-===================================================== -->
-
-<div id="modal6"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal('modal6')">
-
-&times;
-
-</span>
-
-<h2>Callao Cultural</h2>
-
-<p>
-Describe the cultural journey here.
-</p>
-
-<p>
-Price: $60 per person.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCE MODAL 7
-===================================================== -->
-
-<div id="modal7"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal('modal7')">
-
-&times;
-
-</span>
-
-<h2>Photographic Route</h2>
-
-<p>
-Describe the photography experience here.
-</p>
-
-<p>
-Price: $55 per person.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-EXPERIENCE MODAL 8
-===================================================== -->
-
-<div id="modal8"
-class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeModal( 'modal8')">
-
-&times;
-
-</span>
-
-<h2>Gamarra Experience</h2>
-
-<p>
-Describe the urban experience here.
-</p>
-
-<p>
-Price: $40 per person.
-</p>
-
-</div>
-
-</div>
-  
-<!-- =====================================================
+<!-- =========================
 HISTORIAS
-===================================================== -->
-
+========================= -->
 <section id="historias">
 
-<div class="section-sub">
-Historias
+<div class="section-sub">HISTORIAS</div>
+<div class="section-title">Narrativas Urbanas</div>
+
+<div class="scroll">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="card-content">
+<h3>Memoria de Lima</h3>
+<p>AQUI PUEDES ESCRIBIR HISTORIAS LARGAS.</p>
 </div>
-
-<h2 class="section-title">
-Historias de Lima
-</h2>
-
-<p class="section-description">
-Espacio para artículos largos, fotografía y narrativa cultural.
-</p>
-
-<div class="slider-container">
-
-<button class="arrow arrow-left"
-onclick="scrollLeftCustom('storiesScroll')">
-
-<i class="fa-solid fa-chevron-left"></i>
-
-</button>
-
-<button class="arrow arrow-right"
-onclick="scrollRightCustom('storiesScroll')">
-
-<i class="fa-solid fa-chevron-right"></i>
-
-</button>
-
-<div class="horizontal-scroll"
-id="storiesScroll">
-
-<!-- =====================================================
-HISTORIA 1
-===================================================== -->
-
-<div class="story-card">
-
-<div class="story-gallery">
-
-<!-- FOTO 1 -->
-
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop">
-
-<!-- FOTO 2 -->
-
-<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-<div class="story-content">
-
-<h2>La Lima Invisible</h2>
-
-<p>
-
-AQUI PUEDES ESCRIBIR HISTORIAS DE HASTA 800 PALABRAS.
-
-Puedes incluir:
-
-- historia urbana
-- memoria cultural
-- gastronomía
-- relatos sociales
-- fotografía documental
-- turismo alternativo
-
-Duplica este bloque para crear más historias.
-
-</p>
-
 </div>
 
 </div>
-
-<!-- =====================================================
-HISTORIA 2
-===================================================== -->
-
-<div class="story-card">
-
-<div class="story-gallery">
-
-<img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-<div class="story-content">
-
-<h2>Mercados y Memoria</h2>
-
-<p>
-
-Espacio para textos largos acompañados de dos fotografías.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-HISTORIA 3
-===================================================== -->
-
-<div class="story-card">
-
-<div class="story-gallery">
-
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-<div class="story-content">
-
-<h2>Noches de Barranco</h2>
-
-<p>
-
-Describe aquí otra historia cultural.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<!-- =====================================================
+<!-- =========================
 CONTACTO
-===================================================== -->
+========================= -->
+<section id="contacto">
 
-<section id="contacto"
-class="contact-section">
+<div class="section-sub">CONTACTO</div>
+<div class="section-title">Escríbenos</div>
 
-<div class="contact-grid">
+<!-- TEXT EMAIL -->
+<p><b>Email:</b> TU_EMAIL_AQUI</p>
 
-<div class="contact-info">
-
-<div class="section-sub">
-Contacto
-</div>
-
-<h2>Contáctanos</h2>
-
-<p>
-
-WHATSAPP NUMBER:
-+51 987 654 321
-
-</p>
-
-<p>
-
-EMAIL EMPRESA:
-hola@extremooeste.pe
-
-</p>
-
-</div>
-
-<div class="contact-form">
-
-<form>
-
-<input type="text"
-placeholder="Nombre">
-
-<input type="email"
-placeholder="Correo">
-
-<textarea
-placeholder="Mensaje">
-</textarea>
-
-<button type="submit">
-Enviar Mensaje
-</button>
-
-</form>
-
-</div>
-
-</div>
+<!-- TEXT WHATSAPP -->
+<p><b>WhatsApp:</b> +51 TU_NUMERO</p>
 
 </section>
 
-<!-- =====================================================
-WHATSAPP
-===================================================== -->
-
-<a href="https://wa.me/51987654321"
-target="_blank"
-class="whatsapp">
-
-<i class="fa-brands fa-whatsapp"></i>
-
+<!-- WHATSAPP FLOAT -->
+<a class="whatsapp" href="https://wa.me/51987654321">
 WhatsApp
-
 </a>
-
-<!-- =====================================================
-JAVASCRIPT
-===================================================== -->
-
-<script>
-
-/* =====================================================
-SCROLL EXPERIENCIAS / HISTORIAS
-===================================================== */
-
-function scrollLeftCustom(id){
-
-const container =
-document.getElementById(id);
-
-container.scrollBy({
-left:-420,
-behavior:'smooth'
-});
-
-}
-
-function scrollRightCustom(id){
-
-const container =
-document.getElementById(id);
-
-container.scrollBy({
-left:420,
-behavior:'smooth'
-});
-
-}
-
-/* =====================================================
-ABRIR MODAL
-===================================================== */
-
-function openModal(id){
-
-document.getElementById(id).style.display =
-"block";
-
-}
-
-/* =====================================================
-CERRAR MODAL
-===================================================== */
-
-function closeModal(id){
-
-document.getElementById(id).style.display =
-"none";
-
-}
-
-/* =====================================================
-CERRAR MODAL HACIENDO CLICK FUERA
-===================================================== */
-
-window.onclick = function(event){
-
-const modals =
-document.querySelectorAll('.modal');
-
-modals.forEach(modal => {
-
-if(event.target == modal){
-
-modal.style.display = "none";
-
-}
-
-});
-
-}
-
-</script>
 
 </body>
 </html>
-
-
-
-
-
