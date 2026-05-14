@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,205 +7,99 @@
 <title>Extremo Oeste | Turismo Cultural</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
-/* =====================================================
-BASE
-===================================================== */
-
+/* ===================== RESET ===================== */
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-background:#0a0a0a;
-color:#fff;
-font-family:Inter;
-overflow-x:hidden;
-}
-
+body{font-family:Inter;background:#0b0b0b;color:#fff;overflow-x:hidden}
 img{width:100%;display:block}
+a{text-decoration:none;color:inherit}
 
-/* =====================================================
-NAV
-===================================================== */
-
+/* ===================== NAV ===================== */
 nav{
-position:fixed;
-top:0;
-width:100%;
+position:fixed;top:0;width:100%;
 background:rgba(0,0,0,.6);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
-
 .nav{
-display:flex;
-justify-content:space-between;
+display:flex;justify-content:space-between;
 padding:20px 40px;
 }
+.logo{font-family:Oswald;font-size:28px;font-weight:700}
 
-.logo{
-font-family:Oswald;
-font-size:28px;
-font-weight:700;
-}
-
-/* =====================================================
-SECCIONES
-===================================================== */
-
-section{
-padding:100px 8%;
-}
-
-.title{
-font-family:Oswald;
-font-size:3rem;
-margin-bottom:30px;
-}
-
-/* =====================================================
-INICIO
-===================================================== */
-
+/* ===================== HERO ===================== */
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 align-items:center;
+padding:0 8%;
 background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),
 url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c');
 background-size:cover;
 background-position:center;
 }
+.hero h1{font-family:Oswald;font-size:5rem}
+.hero p{max-width:700px;line-height:1.8}
 
-.hero-box{
-max-width:850px;
-}
+/* ===================== SECTIONS ===================== */
+section{padding:100px 8%}
+.title{font-family:Oswald;font-size:3rem;margin-bottom:20px}
 
-.hero h1{
-font-family:Oswald;
-font-size:5rem;
-margin-bottom:20px;
-}
-
-.hero p{
-line-height:1.8;
-color:rgba(255,255,255,.85);
-}
-
-/* =====================================================
-EXPERIENCIAS
-===================================================== */
-
+/* ===================== EXPERIENCIAS ===================== */
 .scroll{
 display:flex;
 gap:20px;
 overflow-x:auto;
 scroll-behavior:smooth;
-padding-bottom:20px;
+padding-bottom:10px;
 }
 
 .card{
-min-width:320px;
-background:#111;
-cursor:pointer;
+min-width:300px;
+background:#141414;
 border:1px solid rgba(255,255,255,.1);
+cursor:pointer;
 transition:.3s;
 }
+.card:hover{transform:translateY(-5px)}
+.card img{height:200px;object-fit:cover}
+.card-content{padding:15px}
 
-.card:hover{transform:scale(1.03)}
-
-.card img{
-height:200px;
-object-fit:cover;
-}
-
-.card-content{
-padding:15px;
-}
-
-/* =====================================================
-HISTORIAS
-===================================================== */
-
+/* ===================== HISTORIAS ===================== */
 .story-scroll{
 display:flex;
-gap:30px;
+gap:25px;
 overflow-x:auto;
-scroll-behavior:smooth;
+scroll-snap-type:x mandatory;
 }
 
 .story{
 min-width:80%;
 background:#111;
 border:1px solid rgba(255,255,255,.1);
-padding:30px;
+scroll-snap-align:start;
 }
 
 .story-images{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
-margin-bottom:20px;
 }
 
-.story-images img{
-height:250px;
-object-fit:cover;
-}
+.story-content{padding:20px;line-height:1.8}
 
-/* =====================================================
-CONTACTO
-===================================================== */
-
-.contact{
-background:
-linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),
-url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
-background-size:cover;
-background-position:center;
-}
-
-.form{
-max-width:600px;
-background:rgba(0,0,0,.65);
-padding:30px;
-border:1px solid rgba(255,255,255,.1);
-}
-
-input,textarea{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-background:#111;
-border:1px solid rgba(255,255,255,.1);
-color:#fff;
-}
-
-button{
-width:100%;
-padding:15px;
-background:#d77c4a;
-border:none;
-color:#fff;
-cursor:pointer;
-}
-
-/* =====================================================
-MODAL
-===================================================== */
-
+/* ===================== MODAL ===================== */
 .modal{
-position:fixed;
-inset:0;
+position:fixed;inset:0;
+background:rgba(0,0,0,.85);
 display:none;
 justify-content:center;
 align-items:center;
-background:rgba(0,0,0,.85);
-padding:20px;
 z-index:9999;
+padding:20px;
 }
 
 .modal.active{display:flex}
@@ -217,27 +110,56 @@ padding:30px;
 max-width:600px;
 width:100%;
 border:1px solid rgba(255,255,255,.1);
+position:relative;
 }
 
-/* =====================================================
-WHATSAPP
-===================================================== */
+.close{
+position:absolute;top:10px;right:15px;
+cursor:pointer;font-size:22px;color:#d77c4a;
+}
 
+/* ===================== CONTACTO ===================== */
+.contact{
+background:
+linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+background-size:cover;
+background-position:center;
+}
+
+form{
+max-width:600px;
+background:rgba(0,0,0,.6);
+padding:20px;
+border:1px solid rgba(255,255,255,.1);
+}
+
+input,textarea{
+width:100%;
+margin-bottom:10px;
+padding:12px;
+background:#1a1a1a;
+border:1px solid rgba(255,255,255,.1);
+color:white;
+}
+
+/* ===================== WHATSAPP ===================== */
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
-padding:15px 18px;
+padding:14px 18px;
 border-radius:50px;
-color:#000;
 font-weight:bold;
+color:black;
 }
 
 @media(max-width:768px){
 .hero h1{font-size:3rem}
-.story-images{grid-template-columns:1fr}
+.story{min-width:95%}
 .card{min-width:85%}
+.nav{padding:15px 20px}
 }
 
 </style>
@@ -245,190 +167,136 @@ font-weight:bold;
 
 <body>
 
-<!-- =====================================================
-CONFIG EDITABLE (TODO AQUÍ)
-===================================================== -->
-
+<!-- CONFIG (EDITA TODO AQUÍ FÁCILMENTE) -->
 <script>
 const CONFIG = {
-
-/* WHATSAPP */
-whatsappNumber: "51999156493",
-whatsappMessage: "Hi, How can I help you?",
-
-/* EMAIL */
-email: "LimaExpiriences@gmail.com",
-
-/* INICIO (300 palabras aquí) */
-introText: `
-Bienvenido a Extremo Oeste. Somos una empresa dedicada al turismo cultural alternativo en Lima, enfocada en experiencias auténticas que conectan a los visitantes con la historia, la gastronomía, la vida urbana y las comunidades locales...
-`,
-
-/* EXPERIENCIAS (8 OBLIGATORIAS) */
-experiences: [
-
-{title:"Lima Precolombina",img:"https://images.unsplash.com/photo-1589909202802-8f4aadce1849",desc:"Huacas milenarias y arqueología urbana.",price:"$65"},
-{title:"Mercado Central",img:"https://images.unsplash.com/photo-1523906834658-6e24ef2386f9",desc:"Gastronomía popular y cultura local.",price:"$55"},
-{title:"Barranco Nocturno",img:"https://images.unsplash.com/photo-1519501025264-65ba15a82390",desc:"Arte urbano y vida nocturna.",price:"$45"},
-{title:"Cocina Limeña",img:"https://images.unsplash.com/photo-1547592180-85f173990554",desc:"Experiencia gastronómica tradicional.",price:"$70"},
-{title:"Lomas de Lima",img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",desc:"Naturaleza y ecoturismo.",price:"$50"},
-{title:"Callao Cultural",img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3",desc:"Historia portuaria y arte urbano.",price:"$60"},
-{title:"Ruta Fotográfica",img:"https://images.unsplash.com/photo-1488646953014-85cb44e25828",desc:"Arquitectura y fotografía urbana.",price:"$55"},
-{title:"Gamarra Experience",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",desc:"Moda y economía popular.",price:"$40"}
-
-],
-
-/* HISTORIAS (3) */
-stories:[
-
-{
-img1:"https://images.unsplash.com/photo-1519501025264-65ba15a82390",
-img2:"https://images.unsplash.com/photo-1523906834658-6e24ef2386f9",
-text:"Historia 1 hasta 800 palabras..."
-},
-
-{
-img1:"https://images.unsplash.com/photo-1547592180-85f173990554",
-img2:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-text:"Historia 2 hasta 800 palabras..."
-},
-
-{
-img1:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-img2:"https://images.unsplash.com/photo-1488646953014-85cb44e25828",
-text:"Historia 3 hasta 800 palabras..."
-}
-
-]
-
+whatsappNumber:"51999156493",
+email:"LimaExpiriences@gmail.com",
+waMessage:"Hi, How can I help you?"
 };
 </script>
 
-<!-- =====================================================
-INICIO
-===================================================== -->
-
-<section class="hero">
-
-<div class="hero-box">
-
-<h1>Descubre Lima Real</h1>
-
-<p id="intro"></p>
-
+<!-- NAV -->
+<nav>
+<div class="nav">
+<div class="logo">Extremo Oeste</div>
 </div>
+</nav>
 
+<!-- INICIO -->
+<section class="hero">
+<div>
+<h1>Descubre Lima</h1>
+<p>
+AQUI ESCRIBES TU VISIÓN (hasta 300 palabras).
+Empresa de turismo cultural enfocada en experiencias reales,
+historia viva y rutas alternativas en Lima.
+</p>
+</div>
 </section>
 
-<!-- =====================================================
-EXPERIENCIAS
-===================================================== -->
-
+<!-- EXPERIENCIAS -->
 <section>
 <h2 class="title">Experiencias</h2>
 
-<div class="scroll" id="exp"></div>
+<div class="scroll" id="exp">
+
+<!-- 8 CARDS -->
+<div class="card" data-title="Lima Precolombina" data-text="Huacas y arqueología urbana." data-price="$65">
+<img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849">
+<div class="card-content"><h3>Lima Precolombina</h3></div>
+</div>
+
+<div class="card" data-title="Mercado Central" data-text="Gastronomía local." data-price="$55">
+<img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
+<div class="card-content"><h3>Mercado Central</h3></div>
+</div>
+
+<div class="card" data-title="Barranco Nocturno" data-text="Arte y vida nocturna." data-price="$45">
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390">
+<div class="card-content"><h3>Barranco Nocturno</h3></div>
+</div>
+
+<!-- DUPLICA HASTA 8 -->
+</div>
 </section>
+
+<!-- HISTORIAS -->
+<section>
+<h2 class="title">Historias</h2>
+
+<div class="story-scroll">
+
+<div class="story">
+<div class="story-images">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+</div>
+<div class="story-content">
+HISTORIA 1 (800 palabras max)
+</div>
+</div>
+
+<div class="story">
+<div class="story-images">
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828">
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554">
+</div>
+<div class="story-content">
+HISTORIA 2
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact">
+<h2 class="title">Contacto</h2>
+
+<form action="mailto:LimaExpiriences@gmail.com" method="post">
+<input placeholder="Nombre">
+<input placeholder="Email">
+<textarea placeholder="Mensaje"></textarea>
+<button>Enviar</button>
+</form>
+</section>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" id="wa" target="_blank">
+WhatsApp
+</a>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-box">
-<h2 id="m-title"></h2>
-<p id="m-desc"></p>
-<p id="m-price"></p>
-<span onclick="closeModal()" style="cursor:pointer;color:#d77c4a">Cerrar</span>
+<span class="close" onclick="closeModal()">×</span>
+<h2 id="t"></h2>
+<p id="p"></p>
+<p id="pr"></p>
 </div>
 </div>
-
-<!-- =====================================================
-HISTORIAS
-===================================================== -->
-
-<section>
-<h2 class="title">Historias</h2>
-
-<div class="story-scroll" id="stories"></div>
-</section>
-
-<!-- =====================================================
-CONTACTO
-===================================================== -->
-
-<section class="contact">
-<h2 class="title">Contacto</h2>
-
-<div class="form">
-<input placeholder="Nombre">
-<input placeholder="Email">
-<textarea placeholder="Mensaje"></textarea>
-<button>Enviar a email</button>
-</div>
-</section>
-
-<!-- =====================================================
-WHATSAPP
-===================================================== -->
-
-<a class="whatsapp" id="wa" target="_blank">WhatsApp</a>
-
-<!-- =====================================================
-JS
-===================================================== -->
 
 <script>
 
-/* INTRO */
-document.getElementById("intro").innerText = CONFIG.introText;
-
-/* WHATSAPP */
+/* WHATSAPP CONFIG */
 document.getElementById("wa").href =
-`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
-
-/* EXPERIENCIAS */
-const exp = document.getElementById("exp");
-
-CONFIG.experiences.forEach((e,i)=>{
-exp.innerHTML += `
-<div class="card" onclick="openModal(${i})">
-<img src="${e.img}">
-<div class="card-content">
-<h3>${e.title}</h3>
-<p>${e.desc}</p>
-<p><b>${e.price}</b></p>
-</div>
-</div>`;
-});
+"https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(CONFIG.waMessage);
 
 /* MODAL */
-function openModal(i){
-const e = CONFIG.experiences[i];
-document.getElementById("m-title").innerText = e.title;
-document.getElementById("m-desc").innerText = e.desc;
-document.getElementById("m-price").innerText = e.price;
-document.getElementById("modal").classList.add("active");
+const modal = document.getElementById("modal");
+
+document.querySelectorAll(".card").forEach(c=>{
+c.onclick=()=>{
+document.getElementById("t").innerText=c.dataset.title;
+document.getElementById("p").innerText=c.dataset.text;
+document.getElementById("pr").innerText=c.dataset.price;
+modal.classList.add("active");
 }
-
-function closeModal(){
-document.getElementById("modal").classList.remove("active");
-}
-
-window.onclick = e=>{
-if(e.target.id==="modal") closeModal();
-};
-
-/* HISTORIAS */
-const stories = document.getElementById("stories");
-
-CONFIG.stories.forEach(s=>{
-stories.innerHTML += `
-<div class="story">
-<div class="story-images">
-<img src="${s.img1}">
-<img src="${s.img2}">
-</div>
-<p>${s.text}</p>
-</div>`;
 });
+
+function closeModal(){modal.classList.remove("active");}
+window.onclick=e=>{if(e.target===modal)closeModal();}
 
 </script>
 
